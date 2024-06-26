@@ -6,4 +6,51 @@ sidebar:
   order: 1
   # Add a badge to the link
 ---
+import { Tabs, TabItem, Icon, Steps } from '@astrojs/starlight/components';
 
+Once anaconda is installed you can install Neuron as follows 
+<Tabs syncKey="OS">
+  <TabItem label="Windows" icon="seti:windows" >
+    <Steps>
+
+1. Visit [download page](https://neuron.yale.edu/ftp/neuron/versions/v8.0/)
+
+    Download and install `nrn-8.0.w64-mingwsetup.exe`
+
+2. Further help in installation can be found here:
+    [Windows Instructions](https://neuron.yale.edu/ftp/neuron/nrn_mswin_install.pdf)
+
+
+
+</Steps>
+  </TabItem>
+  <TabItem label="MacOS" icon="apple">
+    <Steps>
+
+1. Install XQuartz: https://www.xquartz.org/
+
+
+2. Install Neuron using pip
+
+    This should be done in the vscode terminal after camp2024 environment is activated
+    ```bash
+    pip3 install neuron
+    ```
+
+
+</Steps>
+  </TabItem>
+    <TabItem label="Linux" icon="linux">
+    <Steps>
+
+1. Install Neuron using pip
+
+    This should be done in the vscode terminal after camp2024 environment is activated
+    ```bash
+    pip3 install neuron
+    ```
+
+
+</Steps>
+  </TabItem>
+</Tabs>
