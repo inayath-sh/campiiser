@@ -14,6 +14,10 @@ export default defineConfig({
 					label: 'Software Installation',
 					autogenerate: { directory: 'SoftwareInstallation' },
 				},
+				{
+					label: 'Important Links',
+					autogenerate: { directory: 'ImportantLinks' },
+				},
 			],
 		}),
 	],

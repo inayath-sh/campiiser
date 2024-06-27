@@ -10,6 +10,7 @@ sidebar:
 
 import { LinkCard, Steps, Badge } from '@astrojs/starlight/components';
 
+## Installing Anaconda
 Anaconda is a python distribution that includes most of the neccessary python libraries we will be using in this course. Installing anaconda is straight forward. Visit the following link to download and install the version that matches your operating system.
 
 <LinkCard
@@ -20,7 +21,7 @@ Anaconda is a python distribution that includes most of the neccessary python li
 
 A step by step instruction for each operating system can be found [here](https://docs.anaconda.com/anaconda/install/)
 
-## Visual Studio Code
+## Installing Visual Studio Code
 We highly recommend you install visual studio code editor for all python related projects.
 <LinkCard
   title="Download vs code"
@@ -31,7 +32,14 @@ Once installed, vs code should automatically detect and activate anaconda. To co
 
 ```bash
 (base) user@pc:~$
-``` 
+```
+:::note[Windows]
+For windows you might need to select python interpreter manually. To do this, press <Badge text="ctrl + shift + p" variant="tip" size="small" /> and type `Python: Select Interpreter` and select the anaconda interpreter from the list. Restart vs code and run
+```bash
+conda activate
+```
+:::
+
 ## Set up a conda environment
 
 <Steps>
