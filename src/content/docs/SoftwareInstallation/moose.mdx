@@ -6,10 +6,12 @@ sidebar:
   # Set a custom order for the link (lower numbers are displayed higher up)
   order: 8
   # Add a badge to the link
+banner:
+  content: |
+    This for Windows. For linux and macOS installation is straightforward. <a href="https://moose.ncbs.res.in/readthedocs/install/install.html">Check Documentation</a> 
 ---
 
 import { LinkCard, Steps, Badge } from '@astrojs/starlight/components';
-
 
 {/* <Steps>
 
@@ -31,7 +33,6 @@ import { LinkCard, Steps, Badge } from '@astrojs/starlight/components';
 
 </Steps> */}
 
-
   
 # On WSL or git bash
 <Steps>
@@ -42,10 +43,7 @@ import { LinkCard, Steps, Badge } from '@astrojs/starlight/components';
     ```bash
     wsl --install
     ```
-    :::note
-    People with linux should ignore this step
-    :::
-
+    
 2. The above will install Ubuntu. Now open the terminal on WSL/Ubuntu and install `g++` and `make`
 
 
@@ -96,6 +94,29 @@ import { LinkCard, Steps, Badge } from '@astrojs/starlight/components';
     and you are ready to start running moose scripts.
 </Steps>
 
+## Alternatively, You can use a docker image
+<Steps>
+
+1. Install Docker Desktop
+
+    Download and install Docker Desktop: [Download](https://www.docker.com/products/docker-desktop/)
+    :::tip
+    If the download is too heavy, we are passing around hard drives/pen drives with the docker desktop and the moose image.
+    :::
+
+2. Load Moose
+
+    We will provide a docker image for moose. Open the terminal where you have downloaded the .tar file and run,
+
+    ```bash
+    docker load -i moose.tar
+    ```
+3. Run Moose
+    ```bash
+    docker run -it -p 8990-9010:8990-9010 --name Jarjar_Binks analkumar/pymoose_docker
+    ```
+
+</Steps>
 
 
 
