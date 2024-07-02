@@ -11,7 +11,7 @@ sidebar:
 import { LinkCard, Steps, Badge } from '@astrojs/starlight/components';
 
 
-<Steps>
+{/* <Steps>
 
 1. Install Docker Desktop
 
@@ -29,10 +29,65 @@ import { LinkCard, Steps, Badge } from '@astrojs/starlight/components';
     docker run -it -p 8990-9010:8990-9010 --name Jarjar_Binks analkumar/pymoose_docker
     ```
 
+</Steps> */}
+# On WSL or git bash
+ <Steps>
+
+
+1. If not already setup, open PowerShell and install it:
+
+    ```bash
+    wsl --install
+    ```
+
+2. The above will install Ubuntu. Now open the terminal on WSL/Ubuntu and install `g++` and `make`
+
+    ```bash
+    sudo apt-get install g++
+    sudo apt-get install make
+    sudo apt-get install qtbase5-dev
+    sudo apt install firefox
+    ```
+
+3. Install micromamba:
+
+    https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html
+
+    ```bash
+    "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
+    ```
+
+    Update micromamba
+
+    ```bash
+    micromamba self-update
+    ```
+
+4. Create environment with various required packages
+
+    ```bash
+    micromamba create -n moose pip h5py numpy vpython scipy matplotlib gsl hdf5 jupyter pyqt cmake  pybind11[global] jupyterlab-vpython
+    ```
+
+    Activate the environment
+
+    ```bash
+    micromamba activate moose
+    ```
+
+5. Build and install pymoose
+
+    ```bash
+    pip install git+https://github.com/BhallaLab/moose-core.git
+    ```
+
+6. You need to do the above only once. After that, each time to use moose, open WSL Ubuntu terminal and do the following
+
+    ```bash
+    micromamba activate moose
+    ```
+    and you are ready to start running moose scripts.
 </Steps>
-
-
-
 
 
 
