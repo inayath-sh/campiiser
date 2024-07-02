@@ -1,0 +1,43 @@
+---
+title: Installing Moose
+description: How to Install Moose.
+
+sidebar:
+  # Set a custom order for the link (lower numbers are displayed higher up)
+  order: 8
+  # Add a badge to the link
+---
+
+import { LinkCard, Steps, Badge } from '@astrojs/starlight/components';
+
+
+<Steps>
+
+1. Install Docker Desktop
+
+    Download and install Docker Desktop: [Download](https://www.docker.com/products/docker-desktop/)
+
+2. Load Moose
+
+    We will provide a docker image for moose. Open the terminal where you have downloaded the .tar file and run,
+
+    ```bash
+    docker load -i moose.tar
+    ```
+3. Run Moose
+    ```bash
+    docker run -it -p 8990-9010:8990-9010 --name Jarjar_Binks analkumar/pymoose_docker
+    ```
+
+</Steps>
+
+
+
+
+
+
+
+
+
+
+
