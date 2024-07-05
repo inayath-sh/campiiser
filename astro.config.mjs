@@ -13,9 +13,14 @@ export default defineConfig({
 			},
 			sidebar: [
 				{
+					label: 'Projects',
+					autogenerate: { directory: 'Projects' },
+				},
+				{
 					label: 'Software Installation',
 					autogenerate: { directory: 'SoftwareInstallation' },
 				},
+
 				{
 					label: 'Important Links',
 					autogenerate: { directory: 'ImportantLinks' },

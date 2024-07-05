@@ -1,0 +1,196 @@
+---
+title: Project 1 Ideas
+description: List of Projects
+
+sidebar:
+  # Set a custom order for the link (lower numbers are displayed higher up)
+  order: 0
+  # Add a badge to the link
+---
+
+import { LinkCard, Steps, Badge } from '@astrojs/starlight/components';
+
+## MCell Projects
+### Effect of the spatial organization of AMPA receptors, desensitization  and vesicle release rate on synaptic transmission (lead TA: Surabhi)
+
+Recreate a spatially explicit canonical model of a CA3-CA1 synapse based on the geometry in Singh et. al Nat Comm 2022.
+Simulate stochastic release of vesicles and measure excitatory postsynaptic currents based on  Freche 2011 for two different models of AMPA with varying desensitization time constants. 
+Measure the postsynaptic excitatory current response in AMPA receptors at various postsynaptic locations 
+Given the fast desensitization of AMPA, what is the optimal spatial organization of AMPA that gives maximal postsynaptic response for rapid firing and slow firing? Can you quantify this relationship between stimuli pattern and location to get an optimal post-synaptic response?
+					
+
+### Quantifying the contribution of various sources of synaptic noise to variability in postsynaptic response (lead TA: Dhruv)
+Carry out stochastic simulation of action potential in the bouton  based on the geometry in _Singh et. al Nat Comm 2022._ There are several sources of variability that affect synaptic transmission. These include the stochastic opening and the placement of calcium channels that affect the amplitude and the timing of the calcium signal at the activezone, activity of calcium buffers , calcium binding of the vesicle release machinery. 	
+Quantify the effect of each source of variability on the postsynaptic current response.
+:::tip 
+To quantify the effect of stochastic opening of voltage channel channels, increase the per calcium channel flux appropriately as you vary the channel number so that total flux remains the same. FYI: deterministic approximations are appropriate for large channel numbers.
+::: 	
+
+
+### Role of glutamate transporters on astrocytes on postsynaptic current response (lead TA: Nishant Singh)
+Vary the expression level and binding rate of glutamate transporters in the given reconstructed neuropil of the CA3-CA1 synapse and study the postsynaptic current response and glutamate decay profile in the extra-cellular space.
+
+### Recommended Readings
+- Franks,K.M.,Bartol,T.M.&Sejnowski,T.J.,2002.AMonteCarlomodelreveals independent signaling at central glutamatergic synapses. Biophysical journal, 83(5), pp. 2333–2348.
+
+- Keller,D.X.etal.,2008.Calmodulinactivationbycalciumtransientsinthepostsynaptic density of dendritic spines. PLoS ONE, 3(4), p.e2045.
+ 							
+- Kerr,R.etal.,2008.FastMonteCarlosimulationmethodsforbiologicalreaction-diffusion systems in solution and on .... SIAM Journal on Scientific Computing.
+ 							
+- Nadkarni,S.etal.,2010.Modellingvesicularreleaseathippocampalsynapses.PLoS computational biology, 6(11), p.e1000983.
+ 							
+- Scimemi,A.,2014. PlasticityofGABAtransporters:anunconventionalroutetoshape inhibitory synaptic transmission. Frontiers in Cellular Neuroscience, 8, p.128.
+
+- Dominik Freche,Ulrike Pannasch,Nathalie Rouach,David Holcman, Synapse Geometry and Receptor Dynamics Modulate Synaptic Strength
+
+## Single Neuron Dynamics
+### Adaptation
+Explore the effects of different types of adaptation. For example, how does vhalf of the adaptation current (beta_z = 0 mV vs -35 mV) influence the effects of adaptation? There are many different effects one might consider. How does adaptation time constant (t_zau) influence effects? Explain dynamics using phase planes and bifurcation plots.
+ 
+### Bursting
+What intrinsic properties enable bursting? Consider both slow adaptation current as well as faster currents important for spike initiation. How do different biophysical parameters influence burst characteristics? Explain dynamics using phase planes and bifurcation plots.
+ 
+### Afterdischarge
+What intrinsic properties enable afterdischarge (i.e. persistent spiking after a short stimulus)? Try to produce afterdischarge using a “calcium-dependent” (spike-triggered) inward current. Try to produce afterdischarge using a voltage-dependent inward current. Explain dynamics using phase planes and bifurcation plots.
+ 
+:::tip[Bonus]
+In any of the above projects, what are the effects of noise? How do noise effects depend on the amplitude or kinetics of the noise?
+::: 
+ 
+### Coding Properties
+Explore the effects of different voltage-gated currents on neural coding. What are the effects of a subthreshold inward vs outward current? Can you achieve similar coding properties using different parameter combinations? Explain dynamics using phase planes and bifurcation plots. Consider different stimuli: current steps, current pulses, pulse trains, current ramps, noisy current, etc.
+
+## AMPAR currents in the postsynaptic region of a synapse  
+All glutamatergic synapses need receptors sensitive to the neurotransmitter glutamate. Sensing free glutamate is critical for inducing a postsynaptic response. Luckily,  N-methyl-d-aspartate (NMDA)- and α-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid (AMPA)-type receptors are present in the postsynaptic region. AMPARs and NMDARs are glutamate-gated ion channels that locally depolarise the postsynaptic membrane after binding to glutamate. AMPARs are critical players of not just glutamate-dependent neurotransmission but also the long-term plasticity of the synapse. In this project, one will:
+- model the AMPAR current in response to presynaptic stimuli.
+- Model the influence of stochastic presynaptic stimulation on postsynaptic long-term plasticity. 
+
+**References:**
+- https://www.youtube.com/watch?v=8-m_J2CnYho
+- https://www.ncbi.nlm.nih.gov/books/NBK10802/
+- https://www.frontiersin.org/journals/cellular-neuroscience/articles/10.3389/fncel.2014.00401/full
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10862815/
+
+## Energy cost of neurotransmission through a glutamatergic synapse.
+
+Like any critical process, neurotransmission is driven by energy. Every patch of neuronal membrane spends a certain amount of energy for maintaining a resting potential and a certain amount for transmitting information. What is the cost of transmitting a certain unit of information? This project will try to answer this question. One can assume that a unit of information is represented by one action potential and that the unit of energy is one ATP. Under such assumptions, this project will model a synapse and the relevant ions/ receptors/ion channels/buffers (as shown in the figure below) to quantify the energy cost of transmitting one action potential across a synapse.
+
+![Synapse](./public/synapse.png)
+
+**References:**
+- https://doi.org/10.1016/j.neuron.2012.08.019
+- https://www.eneuro.org/content/7/5/ENEURO.0521-19.2020
+- https://www.nature.com/articles/s42003-021-01761-7
+
+## Simple model of central pattern generators
+
+You have already looked at one simple network of central pattern generators of STG. You can now recreate a network model of a CPG of your choice. It can be conductance based, integrate and fire neurons, Izhikevich models etc. Preferably one with at least some excitatory synapses. Use this model to answer the following:
+What is the source of oscillation? Is it driven by the pacemaker neuron or does it arise from the network connectivity?
+Are there neurons that oscillate in the absence of synaptic inputs? If yes, what parameters allow them to do so? Can you now use these to make others in the network oscillatory?
+If you were a neuromodulator and your goal was to change the rhythm of the network, how would you do it? Is it sufficient to change the rhythm of the pacemaker circuit or do you also have to change the synaptic weights?
+
+Below are some models you can use for reference:
+
+Tritonia swim network (Peter Getting, 1983):
+
+https://senselab.med.yale.edu/MicroCircuitDB/showModel.cshtml?model=93326
+
+
+STG network (Eve marder and colleagues):
+
+https://senselab.med.yale.edu/ModelDB/ShowModel?model=3511#tabs-1
+
+https://senselab.med.yale.edu/ModelDB/ShowModel?model=93321#tabs-1
+
+https://senselab.med.yale.edu/ModelDB/ShowModel?model=224998#tabs-1
+
+https://pubmed.ncbi.nlm.nih.gov/15558066/
+
+
+For the more ambitious (and with better computation power), you can go one step further and see how changing the network affects movement. Below are two models for your reference:
+Tadpole spinal cord network:
+
+https://senselab.med.yale.edu/ModelDB/ShowModel?model=267146&file=/CNS%20model%20ModelDB/README.md#tabs-1
+
+Zebrafish spinal cord network:
+
+https://github.com/Bui-lab/Code
+
+
+
+
+## Biochemical modelling of BCM and bistability
+
+[Read the paper](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0010020) to understand bistability and balance in the Ca--CaM--CaN-CamKII-AMPA receptor interaction. Feel free to update the model if you want to after reading the paper. 
+Study the simplified version of the “Model 1”  (shared in the projects folder: Cam_Can_AMPA.g) in the above reference and take the parameters of reactions, pools and enzymes given in the supplementary material of the above paper for your model.
+Explore the balance between the phosphorylated and dephosphorylated forms of AMPA receptors in your model for different concentrations of Calcium.
+ Calculate the range of Calcium concentrations for different stable steady states of AMPA receptors (phosphorylated AMPA vs dephosphorylated AMPA).
+Find out the range for different parameters for which you can observe the bistability property of AMPA receptors. 
+
+
+## Frequency response characteristics - synaptic contribution
+Make a model of presynaptic bouton with as much detail as you like. Examine its frequency
+response characteristic (FRC) and the input-output transfer function
+- Change various parameters of the model and examine what happens to the model’s FRC
+and transfer function
+  - Maximum vesicle release probability
+  - Initial amount of total vesicles available
+  - The calcium decay rate
+  - The rate at which vesicles are recycled
+  - Frequency response characteristic - BCM
+Make a model of the postsynaptic spine with as much detail as you like. Examine its frequency
+response characteristic (FRC)
+- Change the various parameters of the model and examine what happens to the model’s
+FRC
+  - The amount of AMPAR and NMDAR in the synapse
+  - The rate at which CaN dephosphorylate p_AMPAR
+  - The rate at which CaMKII phosphorylate AMPAR
+  - Conductance of various ion channels
+
+## BCM metaplasticity
+Look at how BCM metaplasticity behaves with respect to stability and biological detail
+- See how you could get runaway activity in a network if you did not have negative
+metaplasticity
+- See what effect spine volume change would have on direction of metaplasticity
+- See if you can flip metaplasticity through pathological changes in various molecules at
+the synapse, leading to runaway activity.
+
+## Rall’s law
+Make a 3 compartment passive branching dendritic structure model. Convert this model into 2
+compartment model such that:
+- Both the compartments are of the same diameter and this diameter is equal to the
+primary dendrite of the original 3-compt model.
+- Input resistance and input capacitance remain unchanged
+
+- Time and length constant remain the same
+Is there a relationship between the diameter of the two secondary dendrites and the diameter of
+the 2-compt model?
+
+## Firing patterns
+Implement a izhikevich model and make the following firing patterns:
+- Regular spiking
+- Intrinsically bursting
+- Chattering
+- Fast spiking
+- Thalamocortical
+- Resonator
+- Low-threshold spiking
+- Adapting
+
+What is the relationship between the different variables in the model and the firing type.
+Now implement a single compartment model and introduce the different types of ion channels. You can
+use Modeldb to get the mod files. Can you hand tune the model to get these different spiking patterns?
+Which ion channels are responsible for bursting, adaptation and other patterns.
+
+
+
+
+
+
+
+
+
+
+
+
+
