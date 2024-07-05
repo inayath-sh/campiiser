@@ -60,6 +60,50 @@ In any of the above projects, what are the effects of noise? How do noise effect
 ### Coding Properties
 Explore the effects of different voltage-gated currents on neural coding. What are the effects of a subthreshold inward vs outward current? Can you achieve similar coding properties using different parameter combinations? Explain dynamics using phase planes and bifurcation plots. Consider different stimuli: current steps, current pulses, pulse trains, current ramps, noisy current, etc.
 
+## Noisy Repressilators
+
+Consider the following 2-node garden variety cricuit.
+
+![circuit 1](/rep_1.png)
+
+$f(y)$ is some increasing function (activator) of $y$ and $g(x)$ is a decreasing (repressor) function of $x$. 
+
+The equations governing the dynamics of this circuit are,
+
+$$\frac{dx}{dt} = f(y) - \alpha_{1}(x)$$
+
+$$\frac{dy}{dt} = g(x) - \alpha_{2}(y)$$
+
+let $f(y) = \beta_1y$ and $g(x) = beta_2x$
+
+What are the conditions for this circuit to generate damped oscillations? Integrate these equations numerically to verify.
+
+:::tip[Concepts to be revised]
+1. Jacobian Matrix
+2. Eigenvalues and Eigenvectors
+3. Stability
+4. Numerical Integration using Euler's Method
+:::
+
+How would noise affect the circuit? Would the oscillations damp out or persists ? How variable is the frequency and the amplitude of the oscillator
+:::tip[Concepts needed]
+1. Integrate using euler-maruyama method
+:::
+Upi spoke of a peculiar circuit called a <Badge text="repressilator" variant="tip" size="small" />.
+
+![circuit 1](/rep_2.png)
+_Elowitz, Leibler, Nature 2000._
+
+Each node represses the other. The dynamics of each node can be modelled using a 2-D non-linear dynamical system.
+
+**Using Fitzhugh-Nagumo equations:**
+
+Can you design X,Y,Z as bistable switches and characterize the dynamics of the network driven by noise?
+
+Now set up X, Y, Z as an autonomous oscilaltor. How does the dynamics of the system evolve with and without noise? Characterize the variability in the frequency of periodic solutions. How can you tweak the network to minimize variability?
+
+
+
 ## AMPAR currents in the postsynaptic region of a synapse  
 All glutamatergic synapses need receptors sensitive to the neurotransmitter glutamate. Sensing free glutamate is critical for inducing a postsynaptic response. Luckily,  N-methyl-d-aspartate (NMDA)- and α-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid (AMPA)-type receptors are present in the postsynaptic region. AMPARs and NMDARs are glutamate-gated ion channels that locally depolarise the postsynaptic membrane after binding to glutamate. AMPARs are critical players of not just glutamate-dependent neurotransmission but also the long-term plasticity of the synapse. In this project, one will:
 - model the AMPAR current in response to presynaptic stimuli.
@@ -91,12 +135,12 @@ If you were a neuromodulator and your goal was to change the rhythm of the netwo
 
 Below are some models you can use for reference:
 
-Tritonia swim network (Peter Getting, 1983):
+**Tritonia swim network (Peter Getting, 1983):**
 
 https://senselab.med.yale.edu/MicroCircuitDB/showModel.cshtml?model=93326
 
 
-STG network (Eve marder and colleagues):
+**STG network (Eve marder and colleagues):**
 
 https://senselab.med.yale.edu/ModelDB/ShowModel?model=3511#tabs-1
 
@@ -108,11 +152,11 @@ https://pubmed.ncbi.nlm.nih.gov/15558066/
 
 
 For the more ambitious (and with better computation power), you can go one step further and see how changing the network affects movement. Below are two models for your reference:
-Tadpole spinal cord network:
+**Tadpole spinal cord network:**
 
 https://senselab.med.yale.edu/ModelDB/ShowModel?model=267146&file=/CNS%20model%20ModelDB/README.md#tabs-1
 
-Zebrafish spinal cord network:
+**Zebrafish spinal cord network:**
 
 https://github.com/Bui-lab/Code
 

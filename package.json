@@ -12,6 +12,8 @@
   "dependencies": {
     "@astrojs/starlight": "^0.24.4",
     "astro": "^4.11.3",
+    "rehype-mathjax": "^6.0.0",
+    "remark-math": "^6.0.0",
     "sharp": "^0.32.5",
     "starlight-theme-rapide": "^0.1.1"
   }
