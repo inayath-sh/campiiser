@@ -12,7 +12,7 @@ export default defineConfig({
 	  },
 	integrations: [
 		starlight({
-			title: 'CAMP 2024',
+			title: 'CAMP 2025',
 			customCss:['./src/mathjax.css'],
 			plugins: [starlightThemeRapide()],
 			social: {
