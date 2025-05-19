@@ -19,19 +19,20 @@ export default defineConfig({
 				// github: 'https://github.com/withastro/starlight',
 			},
 			sidebar: [
-				{
-					label: 'Projects',
-					autogenerate: { directory: 'Projects' },
-				},
-				{
-					label: 'Software Installation',
-					autogenerate: { directory: 'SoftwareInstallation' },
-				},
+				// {
+				// 	label: 'Projects',
+				// 	autogenerate: { directory: 'Projects' },
+				// },
 
 				{
 					label: 'Important Links',
 					autogenerate: { directory: 'ImportantLinks' },
 				},
+				{
+					label: 'Software Installation',
+					autogenerate: { directory: 'SoftwareInstallation' },
+				}
+
 			],
 		}),
 	],
