@@ -15,9 +15,6 @@ export default defineConfig({
 			title: 'CAMP 2025',
 			customCss:['./src/mathjax.css'],
 			plugins: [starlightThemeFlexoki()],
-			social: {
-				// github: 'https://github.com/withastro/starlight',
-			},
 			sidebar: [
 				// {
 				// 	label: 'Projects',
