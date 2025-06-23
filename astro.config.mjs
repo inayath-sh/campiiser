@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import starlightThemeRapide from 'starlight-theme-rapide';
+import starlightThemeFlexoki from 'starlight-theme-flexoki'
 import remarkMath from 'remark-math';
 import rehypeMathJax from 'rehype-mathjax';
 
@@ -14,7 +14,7 @@ export default defineConfig({
 		starlight({
 			title: 'CAMP 2025',
 			customCss:['./src/mathjax.css'],
-			plugins: [starlightThemeRapide()],
+			plugins: [starlightThemeFlexoki()],
 			social: {
 				// github: 'https://github.com/withastro/starlight',
 			},
