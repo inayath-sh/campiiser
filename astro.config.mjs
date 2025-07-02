@@ -6,6 +6,8 @@ import rehypeMathJax from 'rehype-mathjax';
 
 // https://astro.build/config
 export default defineConfig({
+  redirects: {
+    '/': '/general/informationbook/'},
 	markdown: {
 		remarkPlugins: [remarkMath],
 		rehypePlugins: [rehypeMathJax],
