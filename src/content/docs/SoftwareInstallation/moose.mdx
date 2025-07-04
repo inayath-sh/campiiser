@@ -6,12 +6,13 @@ sidebar:
   # Set a custom order for the link (lower numbers are displayed higher up)
   order: 6
   # Add a badge to the link
-banner:
-  content: |
-    This for Windows. For linux and macOS installation is straightforward. <a href="https://moose.ncbs.res.in/readthedocs/install/install.html">Check Documentation</a> 
 ---
 
 import { LinkCard, Steps, Badge } from '@astrojs/starlight/components';
+import { Aside } from '@astrojs/starlight/components';
+
+<Aside>We'll share updated MOOSE installation steps in the second week of CAMP.</Aside>
+
 
 {/* <Steps>
 
@@ -34,8 +35,8 @@ import { LinkCard, Steps, Badge } from '@astrojs/starlight/components';
 </Steps> */}
 
   
-# On WSL or git bash
-<Steps>
+{/* # On WSL or git bash */}
+{/* <Steps>
 
 
 1. If not already setup, open PowerShell and install it:
@@ -116,7 +117,7 @@ import { LinkCard, Steps, Badge } from '@astrojs/starlight/components';
     docker run -it -p 8990-9010:8990-9010 --name Jarjar_Binks analkumar/pymoose_docker
     ```
 
-</Steps>
+</Steps> */}
 
 
 
