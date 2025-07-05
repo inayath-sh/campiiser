@@ -1,5 +1,5 @@
 ---
-title: Installing Moose
+title: Installing MOOSE
 description: How to Install Moose.
 
 sidebar:
@@ -11,7 +11,34 @@ sidebar:
 import { LinkCard, Steps, Badge } from '@astrojs/starlight/components';
 import { Aside } from '@astrojs/starlight/components';
 
-<Aside>We'll share updated MOOSE installation steps in the second week of CAMP.</Aside>
+
+## For macOS and Linux:
+
+In your camp2025 env:
+
+1.  Install **h5py**
+
+```bash
+conda install -c conda-forge h5py
+```
+
+2. Install **gsl** (GNU Scientific Library)
+
+```bash
+conda install -c conda-forge gsl
+```
+
+3. Install **MOOSE**
+
+```bash
+pip install pymoose
+```
+
+Download MOOSE examples from GitHub:
+
+```bash
+git clone https://github.com/MooseNeuro/moose-examples.git
+```
 
 
 {/* <Steps>
