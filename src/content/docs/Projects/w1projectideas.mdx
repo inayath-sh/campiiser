@@ -496,32 +496,7 @@ stimulate for electrical stimulation. Keep in mind the accessibility of
 the region, connection of the region etc. You can do a lot more than
 this. Sky\'s the limit. Cheers !
 
-## Project 11: Graded Persistent Activity
-
-###  Eye position:
-
-The saccadic eye movement is an interesting model to study how
-specialised neural circuits can implement important physiological
-functions. The angular eye position instils a change in the firing
-frequency of the pre-motor neuron in the prepositus hypoglossi and the
-medial vestibular nucleus. The change in the firing frequency is
-mediated by a transient pulse of input from command neurons and
-persists for the duration of the fixation. Here we model this network.
-
-Model the network as described in: **Stability of the memory of eye
-position in a recurrent network of conductance-based model neurons**. This is a hand-tuned model of
-the goldfish integrator. As the model is sensitive to the exact values
-of the synaptic parameters, you'll have to pay careful attention to
-how you implement it. It can be done in NEURON, but the units of the
-different quantities will have to be carefully adjusted.
-
-1.  Comment about the physiology of the integrator. What aspects of the model impart its characteristic function?
-
-2.  Find the dynamics of the different neurons in the network. Use linear and non-linear dimensionality reduction techniques to establish the scheme of the attractor in play in the network.
-
-3.  How can you make the network more robust to parameter changes?
-
-### Graded persistent activity in the pre-frontal cortex
+## Project 11: Graded persistent activity in the pre-frontal cortex
 
 The persistent activity in the cortex is a phenomenon where the firing
 of a neuron or neural circuit that exceeds the duration of a stimulus,
@@ -616,3 +591,24 @@ synaptic connections in the brain.
 2.  Look at how the filtering mechanism behaves of the stimulus is changed to a Poisson train of the same rate/frequency instead of a regular periodic stimulus
 
 3.  What are the limits of this system?
+
+## Project 15: Bring me a Neuronal morphology that can….! :
+
+This project is concerned with characteristic ‘passive’ properties of neurons and how they affect neuronal signal processing. We have the following properties that we can study:
+
+i)	The electric properties: Rm, Ra, Cm.
+ii)	The morphology of the neuronal sections: Diameter, Length (of both the soma and the dendrites)
+iii)	The topology of the neuron–arborization with multiple dendrites: makes neurons with at least 2 dendrites.
+iv)	Distribution of synapses: synapses on same dendrites vs multiple dendrites.
+
+This is a simple project to implement, so the analysis has to be very rigorous. One way to go about this would be to define a repertoire of different neurons and try the same experiments with different neurons. 
+
+1.	Model a biophysically realistic model of neuron. Have two copies of the neuron – one with only passive leak currents and one with active ion channels. Make sure you have enough complex neuron models such all the properties above can be studied. Make sure to use appropriate compartmentalisation.
+2.	Impinge the neurons with different types of currents – constant current, white noise, and Poisson. Comment about the differences observed when the properties mentioned above are changed. 
+3.	Distribute the synapses on the dendrites: either distribute the synapses on the same dendrite at different distances from the soma, or distribute them at different dendrites at the same distance from the soma. 
+4.	Activate some synapses – how does the EPSP travel in the dendrites of various characteristics? Stimulate all simultaneously, or with Poisson statistics. What are the differences observed?
+5.	Observe and comment about the temporal and spatial summation of the stimuli. 
+6.	Perform the same analyses with active ion channels. How do the various characteristics change?
+7.	Add white noise to the models. How does this change the temporal and spatial summation?
+
+Analyse the results with physiological significance and constraints in mind. Your analyses should rigorously analyse the effect of the changes in different properties in phenomena like dendritic integration (both temporally and spatially) and attenuation (for complex and simpler arborization). You are welcome to include complexity in model and study other relevant phenomena. But your analyses should reflect on its physiological importance. 
