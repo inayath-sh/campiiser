@@ -16,10 +16,7 @@ export default defineConfig({
 			customCss:['./src/mathjax.css'],
 			plugins: [starlightThemeRapide()],
 			sidebar: [
-				// {
-				// 	label: 'Projects',
-				// 	autogenerate: { directory: 'Projects' },
-				// },
+
 
 				{
 					label: 'General',
@@ -28,7 +25,21 @@ export default defineConfig({
 				{
 					label: 'Software Installation',
 					autogenerate: { directory: 'SoftwareInstallation' },
-				}
+				},
+				{
+				label: 'Projects',
+				items: [
+					'projects/project-guidelines',
+					{
+					label: 'Week 1',
+					items: [
+						'projects/w1projectgroups',
+						'projects/w1projectideas',
+
+					],
+					},
+				],
+				},
 
 			],
 		}),
