@@ -1,0 +1,227 @@
+---
+title: Week 2 Project Ideas
+description: Ideas for projects for the first week
+
+sidebar:
+  # Set a custom order for the link (lower numbers are displayed higher up)
+  order: 2
+  # Add a badge to the link
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip"> These are just suggested project ideas. You are free to come up with your own.</Aside>
+
+
+## Project 1: Spike Packet Transfer
+
+Recurrently connected networks are excellent models to study the
+propagation of synchronous neural signals. Here we will construct a
+similar network and study the propagation of synchronisation.
+
+**Construction:**
+
+Construct spiking neuronal models. These can be leaky
+integrate-and-fire models or conductance-based models. Importance is
+given to the spiking characteristics of the models. The models receive
+a background noise, which can lead to spontaneous spiking. This is the
+modelled synaptic noise. The neurons are connected in a feed-forward
+manner, with the excitatory and inhibitory connections modelled as
+alpha functions of opposite signs.
+
+**Initialization:**
+
+The neurons are excited in the first layer by a spike volley. A volley
+is characterised by (i) the number of spikes, ain, and (ii) the
+temporal dispersion of the spikes, σin.
+
+**Progression:**
+
+As time progresses, in each layer of the network, one can observe the
+size and dispersion of the volley. As such, one can trace the values a
+and σ across the different layers as time progresses. This gives the
+state space of the spiking.
+>
+Find the dynamics of the state space. Find the different fixed points
+in the system. How do the different hyperparameters, like the time
+constant of the neurons, the size of the network, the noise
+parameters, etc., affect the fixed points? Plot the bifurcation plots
+for the system.
+>
+You may refer to this study: **Stable propagation of synchronous
+spiking in cortical neural networks**
+(https://doi.org/10.1038/990101).
+
+## Project 2: Simple model of central pattern generators
+
+You have already looked at one simple network of central pattern
+generators of STG. You can now recreate a network model of a CPG of
+your choice. It can be conductance based, integrate and fire neurons,
+Izhikevich models etc. Preferably one with at least some excitatory
+synapses. Use this model to answer the following:
+
+1.  What is the source of oscillation? Is it driven by the pacemaker neuron or does it arise from the network connectivity?
+
+2.  Are there neurons that oscillate in the absence of synaptic inputs? If yes, what parameters allow them to do so? Can you now use these to make others in the network oscillatory?
+
+3.  If you were a neuromodulator and your goal was to change the rhythm of the network, how would you do it? Is it sufficient to change the rhythm of the pacemaker circuit or do you also have to change the synaptic weights? Check out this review to see how neuromodulatory action can modulate CPG activity: **Neuromodulation of circuits with variable parameters: single neurons and small circuits reveal principles of state-dependent and robust neuromodulation** ([https://doi.org/10.1146/annurev-neuro-071013-013958])
+
+Bonus: Construct a "Parameterscape" for your CPG as is done in
+**Multiple Mechanisms Switch an Electrically Coupled, Synaptically
+Inhibited Neuron between Competing Rhythmic Oscillators**
+(https://doi.org/10.1016/j.neuron.2013.01.016).
+
+Below are some models you can use for reference:
+
+1.  Tritonia swim network
+
+    a.  (Peter Getting, 1989): https://modeldb.science/93326
+
+    b.  (Calin-Jagemann, 2007): https://modeldb.science/93325
+
+2.  STG network (Eve marder and colleagues):
+
+    a.  https://modeldb.science/3511
+
+    b.  https://modeldb.science/93321
+
+    c.  https://modeldb.science/224998]
+ [https://pubmed.ncbi.nlm.nih.gov/15558066/
+
+For the more ambitious (and with better computation power), you can go
+one step further and see how changing the network affects movement.
+Below are two models for your reference:
+
+1.  Tadpole spinal cord network: https://modeldb.science/267146
+
+2.  Zebrafish spinal cord network: https://github.com/Bui-lab/Code
+
+## Project 3: DSI and continuous attractor network
+
+Make a continuous attractor network with neurons exhibiting spike rate
+adaptation. Why can't the network stably store the memory for a long
+time? Implement a slow activity-dependent local disinhibition for
+example cannabinoid-dependent depolarization-induced suppression of
+inhibition (DSI) to make the bump more stable. Replicate the figures
+produced by https://doi.org/10.1093/cercor/bhm103
+
+## Project 4: Intrinsically bursting HVC-RA
+
+Jin et al 2007: **Intrinsic bursting enhances the robustness of a
+neural network model of sequence generation by avian brain area HVC**
+(https://doi.org/10.1007/s10827-007-0032-z), describes a model
+of a network of songbird HVC neurons that can generate sequences. This
+model relies on the idea that individual HVC-RA neurons are capable of
+intrinsically bursting.
+
+1.  Reproduce this model.
+
+2.  Now, can you vary parameters in the HVC-RA neurons and see what is the regime under which these neurons burst intrinsically?
+
+## Project 5: Activity state of random networks with dynamic synapses
+
+Networks with static synapses have been extensively studied. Much less
+is known about networks in which E and I neurons are connected with
+dynamic (facilitatory/depressing) synapses.
+
+1.  Set-up a network of integrate and fire neurons (at least 4K exc and 1K inh.). We use a simple neuron model as we are interested in the effect of synapse dynamics.
+
+2.  Connect the neurons randomly or in a spatial manner (your choice) There are four types of synapses in your model. E→ E, E→ I, I→ E, I→ I. Each could be a facilitatory or depressing type. Making EE synapses facilitatory could be risky as it could destabilize the network when operated at high frequencies. What is the right combination of the synapses that keeps the network stable and also allows it to exhibit different types of dynamical states. You can start by introducing dynamic synapses in EI and IE synapses.
+
+3.  Compare the states with a network in which synapses are static. Are there differences? Do we need to define new descriptors to capture the dynamics of a network in which synapses are dynamic?
+
+Please refer to:
+
+Uziel A, Markram H. t 2000: **Synchrony generation in recurrent
+networks with frequency- dependent synapses**
+(https://doi.org/10.1523/jneurosci.20-01-j0003.2000)
+
+And some other papers of Misha Tsodyks could give you a good start.
+
+## Project 6: Effect of dendritic morphology and ion channel distribution in single neuron models 
+
+ - First try to reproduce the results for inward (terminal->soma) and outward (soma->terminal) input sequence from [Rall, W. (1964). Theoretical significance of dendritic trees for neuronal input-output relations. In R. F. Reiss (Ed.), Neural Theory and Modeling (pp. 73-97). Stanford Univ. Press. https://doi.org/10.7551/mitpress/6743.003.0015 ]  
+
+ - Then create a simple passive neuronal arbor with symmetric branching that gets thinner and thinner with distance from soma and attach synaptic inputs at various locations and observe the effect of activation of those synapses. 
+
+ - Finally add various ion channels to all compartments, vary the conductance densities based on distance from the dendrite terminals, and explore the effect of synaptic inputs. 
+
+ - Pick a few interesting neuronal morphologies from neuromorpho.org and do the same experiment. What are the effects of input at different parts of the dendritic arbor?  
+
+## Project 7: Local feedback via dendrites  
+
+Create a neuron A with a large dendritic arbor (you can pick some existing model) and create two single compartmental neurons B and C and connect them reciprocally to A. Compare the outcomes when: 
+
+(1) the synapses B-A, A-B, C-A, and A-C are all to and from the same compartment of A with  
+
+(2) the scenario where they are on different branches of A.  
+
+Start with passive models and then gradually add K+, Ca2+ and Na+ channels and see the results. What happens when you make the A-B and A-C synapses inhibitory? 
+
+
+## Project 8: Effect of dendritic morphology and ion channel distribution in single neuron models
+- First try to reproduce the results for inward (terminal->soma) and outward (soma->terminal) input sequence from [Rall, W. (1964). Theoretical significance of dendritic trees for neuronal input-output relations. In R. F. Reiss (Ed.), Neural Theory and Modeling (pp. 73-97). Stanford Univ. Press.]
+- Then create a simple passive neuronal arbor with symmetric branching that gets thinner and thinner with distance from soma and attach synaptic inputs at various locations and observe the effect of activation of those synapses
+- Finally add various ion channels to all compartments, vary the conductance densities based on distance from the dendrite terminals, and explore the effect of synaptic inputs
+- Pick a few interesting neuronal morphologies from neuromorpho.org and do the same experiment. What are the effects of input at different parts of the dendritic arbor?
+
+## Project 9: Local feedback via dendrites
+Create a neuron A with a large dendritic arbor (you can pick some existing model) and create two single compartmental neurons B and C and connect them reciprocally to A. Compare the outcomes when (1) the synapses B-A, A-B, C-A, and A-C are all to and from the same compartment of A with (2) the scenario where they are on different branches of A. Start with passive models and then gradually add K+, Ca2+ and Na+ channels and see the results. What happens when you make the A-B and A-C synapses inhibitory?
+
+## Project 10: Graded Persistent Activity
+
+**Eye position:**
+
+The saccadic eye movement is an interesting model to study how
+specialised neural circuits can implement important physiological
+functions. The angular eye position instils a change in the firing
+frequency of the pre-motor neuron in the prepositus hypoglossi and the
+medial vestibular nucleus. The change in the firing frequency is
+mediated by a transient pulse of input from command neurons and
+persists for the duration of the fixation. Here we model this network.
+
+Model the network as described in: **Stability of the memory of eye
+position in a recurrent network of conductance-based model neurons**. This is a hand-tuned model of
+the goldfish integrator. As the model is sensitive to the exact values
+of the synaptic parameters, you'll have to pay careful attention to
+how you implement it. It can be done in NEURON, but the units of the
+different quantities will have to be carefully adjusted.
+
+1.  Comment about the physiology of the integrator. What aspects of the model impart its characteristic function?
+
+2.  Find the dynamics of the different neurons in the network. Use linear and non-linear dimensionality reduction techniques to establish the scheme of the attractor in play in the network.
+
+3.  How can you make the network more robust to parameter changes?
+
+## Project 11: Grid Cells and Reinforcement Learning
+
+Between model-free and model-based RL, there is a compromise called the Successor Representation. Stachenfeld, Gershman and Botvinick (2017) found a surprising relation between the Successor Representation and so-called grid cell firing patterns in the enthorinal cortex. Recreate their Supplementary Figures S7 and S8.
+Extra credit: Try some other environment shapes. Can you reproduce any of the figures from the main paper?
+	https://www.nature.com/articles/nn.4650
+
+## Project 12: A spiking version of the SimpleQLearner:
+Using Brian, create two populations of neurons. Make pairs of neurons from the same population excite each other, but neurons from different populations inhibit each other. That way, you can have the two populations “compete” with each other so that only one population is active at a time. The “action” is simply defined as the population that is active. Stimulate the network with some background activity. Let the synaptic strength from “background” to each population code for the respective Q-value.
+What should the synaptic learning rule look like for the updates to correspond to the RL update rule from the tutorial? Can you justify that rule from a biological point of view?
+What spiking neuron parameters might correspond to the RL parameters α and β?
+
+Extra credit 1 (if there is time): Add more than one state by adding multiple groups of “background activity” and make it so that each group of background activity is active when that state is active (“one-hot coding”). Can you make the network big enough to solve a full 5x5 gridworld problem? (Might be computationally expensive…)
+
+Extra credit 2: Instead of updating the synapses directly when there is reward, create a separate population of neurons that code for the RPE (“dopamine neurons”) and use their firing rates to update the synapses.
+
+## Project 13: Local connectivity and directional anisotropy can lead to the emergence of spatiotemporal sequences in spiking neuronal networks
+
+[Brian Code](https://brian2.readthedocs.io/en/stable/examples/frompapers.Spreizer_et_al_2019.Spreizer_et_al_2019.html)
+
+[Paper Link](https://doi.org/10.1371/journal.pcbi.1007432)
+
+Many of the networks/regions in the brain encode relevant information in a spatiotemporal code. But the understanding of mechanisms behind how these patterns might emerge, remains incomplete. Sebastian Spreizer, Ad, and Arvind proposed a more biologically plausible connectivity rule which gives rise to spatiotemporal activity in a network of Leaky integrate and Fire neurons. What they suggest is that a directional anisotropy in the connectivity, in addition to local connectivity rules, can achieve this. 
+
+You can do the following things in this framework :
+
+1. Show that a purely inhibitory network produces a significantly different spatiotemporal pattern than networks with excitation-inhibition of perlin networks. (as in paper). Investigate the effect of synaptic weights and time scales (synaptic taus) on generation of these patterns.   
+2. Analyse the power spectra of different network configurations. How is it affected by the strength of synaptic input ?  
+3. Test that the asymmetry and coupling determines the velocity of spatiotemporal activity patterns that emerge. You can make a two-dimensional plot for Extent of asymmetry on one axis and coupling (extent of local connections) on other and plot vmax. What does it tell you about the system ?  
+4. Change the extent of the perlin noise. Change it systematically and figure out how spatial patterns emerge with different extent of asymmetry of the network.   
+5. Give input to a small set of local neighbouring neurons. How the spatiotemporal patterns emerge in different connectivity schemes. 
+
+Many more interesting things can be done with this model. For starters, does leak affect the emergence of spatiotemporal patterns ? Or is a reset mechanism enough for this in a perlin network? Next thing, is there a phase locking to the global oscillation of the network ? Authors also suggest that asymmetric modulation by neuromodulation like dopamine can also help in creating such a pattern. 

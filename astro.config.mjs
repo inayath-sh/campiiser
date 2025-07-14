@@ -38,6 +38,14 @@ export default defineConfig({
 
 					],
 					},
+										{
+					label: 'Week 2',
+					items: [
+						'projects/w2projectgroups',
+						'projects/w2projectideas',
+
+					],
+					},
 				],
 				},
 
