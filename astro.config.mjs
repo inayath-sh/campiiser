@@ -28,7 +28,7 @@ export default defineConfig({
       plugins: [
         starlightThemeNova({
           nav: [
-            { label: 'Information Booklet', href: '/general/informationbook' },
+            // { label: 'Information Booklet', href: '/general/informationbook' },
             { label: 'Schedule', href: 'https://camp.iiserpune.ac.in/schedule' },
           ],
         }),
