@@ -1,0 +1,3 @@
+/** ./src/styles/global.css */
+@import 'tailwindcss';
+@import 'starlight-theme-nova/tailwind.css';
