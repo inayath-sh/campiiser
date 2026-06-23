@@ -39,6 +39,10 @@ export default defineConfig({
           label: 'General',
           items: [{ autogenerate: { directory: 'general' } }],
         },
+                {
+          label: 'Reading Material',
+          items: [{ autogenerate: { directory: 'reading-material' } }],
+        },
         {
           label: 'Software Installation',
           items: [{ autogenerate: { directory: 'softwareinstallation' } }],
