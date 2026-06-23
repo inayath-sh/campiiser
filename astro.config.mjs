@@ -47,6 +47,26 @@ export default defineConfig({
           label: 'Software Installation',
           items: [{ autogenerate: { directory: 'softwareinstallation' } }],
         },
+                    {
+                label: 'Projects',
+                items: [
+                'projects/project-guidelines',
+                {
+                    label: 'Week 1',
+                    items: [
+                    'projects/w1projectgroups',
+                    'projects/w1projectideas',
+                    ],
+                },
+                {
+                    label: 'Week 2',
+                    items: [
+                    'projects/w2projectgroups',
+                    'projects/w2projectideas',
+                    ],
+                },
+                ],
+            },
       ],
     }),
   ],
