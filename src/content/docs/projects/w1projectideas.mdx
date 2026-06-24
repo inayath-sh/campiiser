@@ -217,138 +217,8 @@ gone. You can go this route or think of something more creative as well.
 What is the information content of stimulus in persistent firing ? You
 might have to look at the output of a group of ACC neurons.
 
-## Project 5: MCell
 
-Astrocytic processes, especially perisynaptic astrocytic processes (PAPs), are thin (~100–300 nm diameter) and highly dynamic. These microdomains:
-
-    - Enwrap synapses
-
-    - Are rich in IP₃ receptors (IP₃Rs) on internal endoplasmic reticulum membranes
-
-    - Exhibit localized spontaneous Ca²⁺ signals called blips (single-channel events) and puffs (multi-channel events)
-
-
-Experimental challenge: Due to their tiny size, these compartments are below the resolution of standard fluorescence microscopy, making it hard to determine:
-
-- Molecular mechanisms
-
-- Spatial organization
-
-- Origin of spontaneous calcium signals
-
-Particle-based spatial stochastic simulation is ideal for capturing:
-
-- Spatial localization of receptors and signaling molecules
-
-- Stochastic fluctuations in small volumes
-
-- Colocalization-driven feedback mechanisms
-
-
-This is where MCell comes in — a platform for realistic 3D, particle-based simulations of cell signalling at nanoscales.
-
-**Objectives**
-
-1. Replicate a spatial, stochastic model of spontaneous Ca²⁺ signaling via IP3Rs in fine astrocytic processes.
-
-
-2. Quantify how IP₃R clustering (η) and calcium source colocalization radius (Rγ) affect:
-
-    - Open probability of IP3 receptors
-
-    - Amount of calcium in the cytosol
-
-    - Proportion of blips vs puffs
-
-
-All parameters and model details are provided in the paper below:.
-
-**Reference paper:** 
-
-https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006795
-
-“Simulation of calcium signaling in fine astrocytic processes: Effect of spatial properties on spontaneous activity”
-
-Audrey Denizot, Misa Arizono, U. Valentin Nägerl, Hédi Soula, Hugues Berry
-
-## Project 6: MCell
-
-![](/mcellproject2.jpg)
-
-What is that smell? Where is it coming from? We have often found ourselves pondering these questions, regardless of the source of that smell. Interestingly, we are not alone in this inquiry; all complex organisms can ask the same. The olfactory system is arguably the oldest sensory system and is present across these organisms, allowing them to identify the source of an odorant by adjusting their nasal cavities or antennae and comparing the incoming signals.
-
-In this project, you will design two identical conical nasal cavities using CellBlender and simulate the response of olfactory receptors to a diffusing odorant. By studying the dynamics of the receptors in the nasal cavity, can you determine the direction or angle of the odorant’s source? If so, please explain the underlying principle that enables the detection of the source's direction or angle from the nasal cavity. Additionally, comment on the resolution of your system. Feel free to draw your own conclusions as well.
-
-Feel free to play around with the rate constants.
-
-You may use the following papers for further reference:
-1. https://bpspubs.onlinelibrary.wiley.com/doi/pdfdirect/10.1002/prp2.311
-2. https://pubs.acs.org/doi/10.1021/acs.jpcb.7b00486
-
-## Project 7: From spiking neurons to population dynamics -- example on Wilson-Cowan model
-
-Objective:
-
-This project explores how the collective behavior of neural populations
-emerges from the interactions of individual spiking neurons. Using
-probabilistic methods inspired by Bressloff \[1\] and Benayoun et al.
-\[2\], the Wilson-Cowan equations \[3,4\] are derived from microscopic
-spiking dynamics. The analysis of this mean-field model explains key
-phenomena like bistability and oscillations in neural activity.
-
-1\. Mean-Field Approximation:
-
-Let's consider a network of stochastic binary neurons (0: quiescent
-state and 1: active state). Each neuron spiking (jump from 0 to 1)
-probability depends on its inputs from the other excitatory and
-inhibitory neurons. Considering the dynamics of the proportion of active
-neurons when the number of neurons tends to infinity, one can derive a
-mean field model which is nothing else than the famous WIlson-Cowan
-model.
-
-2\. Emergent Phenomena:
-
-Analysing the limit system with dynamical system theory, one can find
-parameters generating interesting dynamics such as bistability and
-oscillations.
-
-3\. Numerical Exploration:
-
-Simulations of the Wilson-Cowan model and its microscopic version
-enables one to visualize these phenomena, mapping out parameter regimes
-where bistability or oscillations occur.
-
-4\. Discussion:
-
-What are the strengths and limitations of the mean-field approach?
-Consider when it breaks down (e.g., in small or highly correlated
-networks) and possible extensions to include noise or spatial structure.
-
-Outcome:
-
-The project highlights the interplay between theory (mean-field
-approximations) and phenomena (bistability, oscillations), offering
-intuition for how simplified models can capture complex neural behavior.
-
-References:
-
-\[1\] Bressloff, P. C. Metastable states and quasicycles in a stochastic
-Wilson-Cowan model of neuronal population dynamics. *Physical Review E*
-**82**, 051903 (2010).
-
-\[2\] Benayoun, M., Cowan, J. D., van Drongelen, W. & Wallace, E.
-Avalanches in a Stochastic Model of Spiking Neurons. *PLoS Computational
-Biology* **6**, e1000846 (2010).
-
-\[3\] Wilson, H. R. & Cowan, J. D. Excitatory and Inhibitory
-Interactions in Localized Populations of Model Neurons. *Biophysical
-Journal* **12**, 1--24 (1972).
-
-\[4\] Wilson, H. R. & Cowan, J. D. A mathematical theory of the
-functional dynamics of cortical and thalamic nervous tissue.
-*Kybernetik* **13**, 55--80 (1973).
-
-## Project 8: On simple connectivity structure to generate oscillations
+## Project 5: On simple connectivity structure to generate oscillations
 
 Objective:
 
@@ -400,6 +270,236 @@ systems. Journal of Biological Systems 06:11--15.
 on the emergence of oscillations in multi-population neural networks.
 *eLife* **12**, RP88777 (2024).
 
+
+## Project 6: Graded persistent activity in the pre-frontal cortex
+
+The persistent activity in the cortex is a phenomenon where the firing
+of a neuron or neural circuit that exceeds the duration of a stimulus,
+persisting after the stimulus has terminated. This has been shown to
+be important for the generation of functions such as working memory in
+the cortex. Here we will study how *single* neuron in the prefrontal
+cortex.
+
+Implement the pre-frontal cortex conductance based model as described
+in **Hyperpolarization- activated graded persistent activity in the
+prefrontal cortex** (https://doi.org/10.1073/pnas.0800360105).
+Or you can find other models of single-neuron persistent activity.
+
+1.  As the paper points out, the Ih current is essential for developing the graded activity of the neurons. What other factors of the model and the different ion channels affect graded activity and how?
+
+2.  How does the dynamics of the different ion channels play out in the model? Use appropriate values of different currents and see large-scale realtion between them.
+
+
+
+
+
+## Project 7: Spike filtering with short-term plasticity
+
+Short-term plasticity is responsible for facilitating/depressing
+synapses at very short timescales of the order of 10s of ms. It is
+believed to play an important role in neuronal computation by
+providing a form of rate-filtering mechanism.
+
+Develop a simple short-term plasticity model like in:
+
+a.  (Tsodyks M, Pawelzik K, Markram H. 1998): **Neural networks with dynamic synapses**
+
+(https://doi.org/10.1162/089976698300017502)
+
+b.  (Lee et al. 2009): **A Kinetic Model Unifying Presynaptic Short-Term Facilitation and Depression** (https://doi.org/10.1007/s10827-008-0122-6)
+
+Explore the different kinds of synapses (facilitating and depressing)
+by changing the parameters to get the behaviour of different kinds of
+synaptic connections in the brain.
+
+1.  How would you change the parameters to get different ranges of rate filtering (eg. 10- 30Hz)?
+
+2.  Look at how the filtering mechanism behaves of the stimulus is changed to a Poisson train of the same rate/frequency instead of a regular periodic stimulus
+
+3.  What are the limits of this system?
+
+
+## Project 8: Pyramidal neurons in CA1 switch from integrators to resonators ([Prescott et al. 2008](https://journals.physiology.org/doi/epdf/10.1152/jn.90634.2008)) :
+
+[**Github Repository**](https://github.com/ModelDBRepository/116386)
+
+When the animal is in an active state (wakefulness) , pyramidal neurons typically experience a lot of synaptic inputs that causes tonic depolarisation, causes the resting membrane potential to rise (shunting) and noisy fluctuations. In contrast, pyramidal neurons in slices do not experience such a big barrage of synaptic inputs. Prescott et al 2008 claims that due to this discrepancy between in-vitro and and in-vivo conditions, the preposition that pyramidal neurons that are usually characterized as class 1  ( integrators ) is not that accurate. Conversely, the animal can have different states of inputs gathered at CA1 depending upon task and attention levels. They show that CA1 pyramidal neurons can transition from Integrator to resonator based on shunting levels and levels of adaptation Mechanistically, shunting and adaptation can change spike-onset dynamics from a SNIC-type onset to a Hopf-type onset. Another important feature shown is that slower M-current dynamics are important for bringing oscillations into the theta range, while slow sodium inactivation can further enhance perithreshold M-current activation during sustained depolarization.
+
+![](/media/image11-inverted.png)
+
+Using this model, one can readily demonstrate the following dynamical phenomena:
+1. Using XPPAUT and choosing relevant bifurcation parameters show the transition from SNIC to Hopf bifurcation and how each of them affect the F-I characteristic of the CA1 pyramidal neuron (Response property) : Effectively you will be replicating the first few figures of the paper. Suggestion is that you start with the Iext vs V and move from there. 
+2. Show how the background noise affects the transition in dynamics. Does more noise favour one dynamical system (SNIC vs Hopf) vs other ?
+3. Dissect out the role of adaptation vs shunting . Are there any other bifurcation parameters that can be used to understand the behaviour of the system ? 
+4. Replicate these neurons in your favourite neuron simulator. This will be convenient for making the F-I curve for different system configurations. Although in principle XPPAUT can also be used for the same.
+5. Make a network of these neurons in your favorite neuron simulator. For the inhibitory neurons (PV basket cell or O-LM) you can use simple integrate and fire type neurons with synapse characteristics matching the CA1. Compare the two configurations (SNIC vs Hopf) in both high inhibitory and low inhibitory settings. 
+6. Visualize V and w nullclines and observe how changing gM, beta_w (or any other parameter you think is important ) changes the nullcline geometry and (oscillatory) approach to equilibrium. 
+7. Show that a particular class supports subthreshold oscillation more than the other. 
+8. Compare the coding properties of integrator and resonator neurons by stimulating them with constant currents, pulses, ramps, chirps, noisy currents, and Poisson synaptic trains, and quantify differences in spike latency, phase locking, coincidence detection, temporal precision, vector strength, and transfer function.
+
+**Suggestion** : Look at chapter - 7 - Neuronal Excitability [**Izhkevich**](https://labs.ni.gsu.edu/ashilnikov/teaching/fall2008/8515/izhikevich.pdf) for more clarity about class 1 and class 2 behavior. 
+
+
+![](/media/image12-inverted.png)
+<div style="text-align: center;">
+
+**Reference** : [**Izhekevich's Book**](https://labs.ni.gsu.edu/ashilnikov/teaching/fall2008/8515/izhikevich.pdf)
+
+</div>
+
+
+You can do many more things with this model. Abovementioned suggestions are just characterizations of the model. Some interesting broad questions to ask might be :
+
+**A.** Does one configuration support a particular kind of computation vs other ? For example : Are resonator neurons better coincidence detectors?
+
+**B.** How does the excitability class influence network synchronization? What kind of computation can synchronization promote ? 
+
+**C.** Can a heterogeneous population containing both SNIC and Hopf neurons outperform homogeneous populations?
+
+**D.** Is there an optimal adaptation time constant for hippocampal computation? Can the network dynamically switch computational modes during behavior?
+
+**E.** Construct a network (Hint : [**Link**](https://brian2.readthedocs.io/en/stable/examples/frompapers.Morris_Lecar_1981.html)) consisting of excitatory pyramidal neurons together with inhibitory PV basket cells (or O-LM interneurons), compare network dynamics when the pyramidal cells operate in the SNIC versus Hopf regime under both low and high inhibition, and quantify synchrony, population firing rate, theta/gamma power, pairwise correlations, and phase locking to determine whether resonator neurons synchronize more readily. 
+**Hint** : You do not necessarily have to replicate inhibitory neuronal dynamics, you can use spike trains and simple inhibitory synapse with some reasonable time constants. 
+
+
+## Project 9: Small world network of Excitable neurons show self sustained activity ([Roxin, Reike and Solla 2004](https://doi.org/10.1103/PhysRevLett.92.198101))
+
+Persistent activity arising from network bistability is widely considered a candidate mechanism for working memory. Although numerous cortical network models have explored this phenomenon, the role of network architecture—particularly connectivity heterogeneity and long-range excitatory interactions—remains relatively underexplored. Investigating how these structural features influence network dynamics may help clarify the principles governing stable memory representations in cortical circuits. These self sustained activity can also be seen in models studying epilepsy and bursting in pre-botZ complexes. The group of Sara A. Solla showed that at low coupling (or connection probability) the network can show failure to propagate or succeed. ([paper](https://doi.org/10.1103/PhysRevLett.92.198101))
+
+
+Consider an array of N integrate-and-fire (IF) neurons as described in the paper : 
+
+1. Characterize how each parameter (`tauD`, `gsyn`, etc.) affects the overall firing pattern.
+
+2. Construct a small world network of these neurons in such a way that :
+
+        **a)**  Local connections are modeled as nearest-neighbors coupling (as in the paper) (Wij = 1 if i and j are neighbors) . You can use brian2, NEURON or any of your favourite simulators.
+
+        **b)**  Setup a long range connection from randomly adding a pn fraction of unidirectional connections.
+
+        **c)**  Calculate some network properties like clustering coefficient, closeness, betweenness and correlate it with the firing property of the network. Does it intuitively tell you anything ? 
+    
+        **d)**  Make a network of 1000 neurons with different values of  I, gsyn tau_membrane and tau_d . Confirm that for some value of these parameters, you start seeing persistent activity with some failure and successes. (Iext = 0.85, gsyn = 0.2,tau_m = 10  , tau_d = 1 ). The activity vanishes if connectivity or coupling is reduced ? Check that as well. 
+
+        **e)**  Design an algorithm to check whether the activity persists or not (failure vs success) and how long the activity persisted with a single injection of input. 
+
+        **f)**  For different  p from 0 to 1 (for instance, p = 0.1 ∗ k, k = 1, . . . , 10), average over 2000 realizations to calculate the probability of persistent activity. Plot the complementary probability of failure versus p, for N = 250, 1500, 1000, 2000 and comment the results. Observe that the probability of failure is an increasing function of p with increasing steepness as the size N of the system increases.
+
+
+3. Calculate clustering coefficient, closeness centrality, and betweenness centrality and correlate them with network firing properties.
+
+4. Construct networks of ~1000 neurons and identify regimes that support persistent activity.
+
+5. Design an algorithm to classify simulations into failure versus success and measure persistence duration.
+
+6. Reproduce the probability-of-failure analysis for different network sizes and rewiring probabilities.
+
+
+You can do many more things with this model. The above suggestions are merely characterizations of the model.
+
+**Some broader questions that may be interesting to investigate:**
+
+**A.** Can the network show input-dependent durations of persistent activity?
+
+
+**B.** Can you find out if the duration of persistent activity is a reliable quantity to store memory ? 
+
+
+**C.** What should be the connectivity of a network to give a somewhat reliable number of successes ? Do areas in the brain implicated in Working memory show connectivity close to this ?
+
+
+**D.** Do brain regions implicated in working memory exhibit similar connectivity statistics?
+
+
+
+
+## Project 10: Functional balanced networks with synaptic plasticity ([Sadeh et al 2015](https://doi.org/10.1371/journal.pcbi.1004307)) 
+[**Github Repository**](https://github.com/ModelDBRepository/182784)
+
+During the development of the visual cortex, synaptic connectivity is non-specific that later becomes functional and selective via several processes including synaptic pruning. One specific example of this is synaptic connections of orientation-selective neurons in the rodent visual cortex. However in the rodents the distribution of orientation selective neurons is different from primates. More specifically in rodents, in contrast, such spatial orientation maps do not exist, and neurons of different specificities are mixed in a salt-and-pepper fashion..Sadeh Rotter and Clopath ( Sadeh et al ) show that feature-specific connectivity can arise in realistic neocortical networks of excitatory and inhibitory neurons . They also show that such networks with plastic recurrent synapses can, through visual experience, develop specific connectivity. However there is an E-I balance that is maintained before and after training.  
+
+![](/media/image13-inverted.png)
+
+
+Using this model, one can readily demonstrate the following phenomena:
+
+1. You can create this model in Brian2, NEURON, or any of your favorite neuron simulators, or use the model provided by the authors in the GitHub repository. Calculate total excitatory versus total inhibitory current and examine how it evolves before and after plasticity.
+
+2. Start from random connectivity. Train for 40 training batches and plot the weight matrix before and after training (and also (Wf - Wi)). Verify that neurons with similar preferred orientations develop stronger E→E connections.
+
+3. For every neuron, calculate the tuning curve and determine its preferred orientation. You can also calculate the mean OSI (Orientation Selectivity Index) before and after training. Does synaptic plasticity sharpen tuning after training? Does learning make coding more sparse?
+
+4. Change the number of training batches (repeated training blocks) and the number of different stimuli (number of stimuli with different orientations in each batch). Figure out how these variables affect learning.
+
+5. Change the trial time and repeat the analysis in (4). Are the results intuitive?
+
+6. Change the timescales of plasticity and repeat the analysis in (4). Does learning make coding more sparse?
+
+7. Isolate one presynaptic and one postsynaptic cell and construct the plasticity kernel. Is potentiation symmetric? Does the rule generate bidirectional connectivity?
+
+8. Systematically vary E→E synaptic strength and connectivity. Calculate selectivity, OSI, and sparsity. Is there a critical connectivity density required for learning?
+
+
+You can do many more things with this model. The above suggestions are merely characterizations of the model.
+
+
+**A. Small-World vs Random Connectivity:** Replace the random E→E network with Erdős-Rényi, Small-world, and Scale-free architectures and compare learning speed and final specificity. This is a particularly interesting extension project.
+
+**B. Population Dynamics (Dimensionality Reduction):** Construct population firing rate vectors and perform PCA. Compare PCA trajectories before and after training. Does learning compress stimulus representations?
+
+**C. Weight Distribution Dynamics:** Calculate the evolution of the synaptic weight distribution over training. Why does a bimodal distribution emerge? You can also use information-theoretic approaches to explain this phenomenon.
+
+## Project 11: Activity state of random networks with dynamic synapses
+
+Networks with static synapses have been extensively studied. Much less
+is known about networks in which E and I neurons are connected with
+dynamic (facilitatory/depressing) synapses.
+
+1.  Set-up a network of integrate and fire neurons (at least 4K exc and 1K inh.). We use a simple neuron model as we are interested in the effect of synapse dynamics.
+
+2.  Connect the neurons randomly or in a spatial manner (your choice) There are four types of synapses in your model. E→ E, E→ I, I→ E, I→ I. Each could be a facilitatory or depressing type. Making EE synapses facilitatory could be risky as it could destabilize the network when operated at high frequencies. What is the right combination of the synapses that keeps the network stable and also allows it to exhibit different types of dynamical states. You can start by introducing dynamic synapses in EI and IE synapses.
+
+3.  Compare the states with a network in which synapses are static. Are there differences? Do we need to define new descriptors to capture the dynamics of a network in which synapses are dynamic?
+
+Please refer to:
+
+Uziel A, Markram H. t 2000: **Synchrony generation in recurrent
+networks with frequency- dependent synapses**
+(https://doi.org/10.1523/jneurosci.20-01-j0003.2000)
+
+And some other papers of Misha Tsodyks could give you a good start.
+
+
+## Project 12: Local connectivity and directional anisotropy can lead to the emergence of spatiotemporal sequences in spiking neuronal networks
+
+[Brian Code](https://brian2.readthedocs.io/en/stable/examples/frompapers.Spreizer_et_al_2019.Spreizer_et_al_2019.html)
+
+[Paper Link](https://doi.org/10.1371/journal.pcbi.1007432)
+
+Many of the networks/regions in the brain encode relevant information in a spatiotemporal code. But the understanding of mechanisms behind how these patterns might emerge, remains incomplete. Sebastian Spreizer, Ad, and Arvind proposed a more biologically plausible connectivity rule which gives rise to spatiotemporal activity in a network of Leaky integrate and Fire neurons. What they suggest is that a directional anisotropy in the connectivity, in addition to local connectivity rules, can achieve this. 
+
+You can do the following things in this framework :
+
+1. Show that a purely inhibitory network produces a significantly different spatiotemporal pattern than networks with excitation-inhibition of perlin networks. (as in paper). Investigate the effect of synaptic weights and time scales (synaptic taus) on generation of these patterns.   
+2. Analyse the power spectra of different network configurations. How is it affected by the strength of synaptic input ?  
+3. Test that the asymmetry and coupling determines the velocity of spatiotemporal activity patterns that emerge. You can make a two-dimensional plot for Extent of asymmetry on one axis and coupling (extent of local connections) on other and plot vmax. What does it tell you about the system ?  
+4. Change the extent of the perlin noise. Change it systematically and figure out how spatial patterns emerge with different extent of asymmetry of the network.   
+5. Give input to a small set of local neighbouring neurons. How the spatiotemporal patterns emerge in different connectivity schemes. 
+
+Many more interesting things can be done with this model. For starters, does leak affect the emergence of spatiotemporal patterns ? Or is a reset mechanism enough for this in a perlin network? Next thing, is there a phase locking to the global oscillation of the network ? Authors also suggest that asymmetric modulation by neuromodulation like dopamine can also help in creating such a pattern. 
+
+
+
+
+
+
+
+{/*
+
+######################### UNUSED PROJECTS (Just in case) ##################
+###########################################################################
+
+
 ## Project 9 : Role of dendritic sodium spikes in Neurons (Górski et al 2018)
 
 [Brian2 code.](https://modeldb.science/244700)
@@ -441,6 +541,9 @@ this kind of computation? Another thing that can be explored is, some
 dendrites show Ca++ spikes. It would be a serious challenge but if you
 must take it, check if this phenomenon is only exclusive to Na spikes?
 We will leave the rest of the exploration to the imagination of you all.
+
+
+
 
 ## Project 10 : Detailed Gut mobility by pacemaker neurons (Barth et al 2017)
 
@@ -497,249 +600,4 @@ stimulate for electrical stimulation. Keep in mind the accessibility of
 the region, connection of the region etc. You can do a lot more than
 this. Sky\'s the limit. Cheers !
 
-## Project 11: Graded persistent activity in the pre-frontal cortex
-
-The persistent activity in the cortex is a phenomenon where the firing
-of a neuron or neural circuit that exceeds the duration of a stimulus,
-persisting after the stimulus has terminated. This has been shown to
-be important for the generation of functions such as working memory in
-the cortex. Here we will study how *single* neuron in the prefrontal
-cortex.
-
-Implement the pre-frontal cortex conductance based model as described
-in **Hyperpolarization- activated graded persistent activity in the
-prefrontal cortex** (https://doi.org/10.1073/pnas.0800360105).
-Or you can find other models of single-neuron persistent activity.
-
-1.  As the paper points out, the Ih current is essential for developing the graded activity of the neurons. What other factors of the model and the different ion channels affect graded activity and how?
-
-2.  How does the dynamics of the different ion channels play out in the model? Use appropriate values of different currents and see large-scale realtion between them.
-
-## Project 12: Electrophysiology and Neural Coding
-
-In this project, we will analyse the coding properties of a neuron and
-how they vary with different neuronal characteristics.
-
-Make a conductance-based model of a neuron with active conductance.
-You can include any number of ion channels in the model as you like,
-or even model a neuron with empirically observed ion channels and
-corresponding conductance. The only requirement is that it should fire
-action potentials.
-
-1.  Identify the default firing mode of the neuron (classify it into a class I, class II or class III neuron).
-
-2.  Modulate the different ion channel properties of channels in the neuron and find out which channels change the firing mode of the neuron.
-
-3.  Find out the channel properties corresponding to the three classes of neurons. As such, create a repertoire of class I, class II and class III neurons starting from the base model.
-
-4.  Why does the firing mode of the neurons change with the different properties? Show in context of different ion channel currents.
-
-5.  Find out the temporal summation characteristics of the signals impinged on the neuron and how they vary for the three classes.
-
-6.  Find out the Spike Triggered Average (STA) for the three classes of neurons. Comment on the Input-Output properties of the neuron.
-
-7.  Create a set of similar classes of neurons and impinge them with a variety of synchronous and asynchronous inputs.
-
-8.  Repeat 6 with various types and amounts of noise. Analyze the effects of correlation in inputs and noise on the correlation of the output.
-
-Comment on what role the various classes of neurons can play in a
-network.
-
-Bonus: If you have not already, introduce HCN, NaP, SK and CaT type
-currents in the neuronal model and analyse the effects of the ion
-channels on the coding characteristics.
-
-For reference, please refer to the excellent review: Impact of
-Neuronal Properties on Network Coding: **Roles of Spike Initiation
-Dynamics and Robust Synchrony Transfer**
-(http://dx.doi.org/10.1016/j.neuron.2013.05.030)
-
-## Project 13: Operant conditioning and dopamine
-
-In operant conditioning, the animal performs random movements but only
-one kind of movement gives it a reward. Out of the thousands of
-movements how does the system know which movement gives it a reward?
-The reward itself comes after a few seconds in which time the animal
-may have made some more movements. How does the system keep track of
-which synapses to potentiate if the neurons themselves are
-stochastically firing during this waiting period? Implement a learning
-scheme in which the co-firing neurons get tagged due to STDP mechanism
-and the weight update itself occurs due to dopamine released at the
-time of the reward. Refer to
-https://doi.org/10.1093/cercor/bhl152
-
-## Project 14: Spike filtering with short-term plasticity
-
-Short-term plasticity is responsible for facilitating/depressing
-synapses at very short timescales of the order of 10s of ms. It is
-believed to play an important role in neuronal computation by
-providing a form of rate-filtering mechanism.
-
-Develop a simple short-term plasticity model like in:
-
-a.  (Tsodyks M, Pawelzik K, Markram H. 1998): **Neural networks with dynamic synapses**
-
-(https://doi.org/10.1162/089976698300017502)
-
-b.  (Lee et al. 2009): **A Kinetic Model Unifying Presynaptic Short-Term Facilitation and Depression** (https://doi.org/10.1007/s10827-008-0122-6)
-
-Explore the different kinds of synapses (facilitating and depressing)
-by changing the parameters to get the behaviour of different kinds of
-synaptic connections in the brain.
-
-1.  How would you change the parameters to get different ranges of rate filtering (eg. 10- 30Hz)?
-
-2.  Look at how the filtering mechanism behaves of the stimulus is changed to a Poisson train of the same rate/frequency instead of a regular periodic stimulus
-
-3.  What are the limits of this system?
-
-## Project 15: Bring me a Neuronal morphology that can….! :
-
-This project is concerned with characteristic ‘passive’ properties of neurons and how they affect neuronal signal processing. We have the following properties that we can study:
-
-i)	The electric properties: Rm, Ra, Cm.
-ii)	The morphology of the neuronal sections: Diameter, Length (of both the soma and the dendrites)
-iii)	The topology of the neuron–arborization with multiple dendrites: makes neurons with at least 2 dendrites.
-iv)	Distribution of synapses: synapses on same dendrites vs multiple dendrites.
-
-This is a simple project to implement, so the analysis has to be very rigorous. One way to go about this would be to define a repertoire of different neurons and try the same experiments with different neurons. 
-
-1.	Model a biophysically realistic model of neuron. Have two copies of the neuron – one with only passive leak currents and one with active ion channels. Make sure you have enough complex neuron models such all the properties above can be studied. Make sure to use appropriate compartmentalisation.
-2.	Impinge the neurons with different types of currents – constant current, white noise, and Poisson. Comment about the differences observed when the properties mentioned above are changed. 
-3.	Distribute the synapses on the dendrites: either distribute the synapses on the same dendrite at different distances from the soma, or distribute them at different dendrites at the same distance from the soma. 
-4.	Activate some synapses – how does the EPSP travel in the dendrites of various characteristics? Stimulate all simultaneously, or with Poisson statistics. What are the differences observed?
-5.	Observe and comment about the temporal and spatial summation of the stimuli. 
-6.	Perform the same analyses with active ion channels. How do the various characteristics change?
-7.	Add white noise to the models. How does this change the temporal and spatial summation?
-
-Analyse the results with physiological significance and constraints in mind. Your analyses should rigorously analyse the effect of the changes in different properties in phenomena like dendritic integration (both temporally and spatially) and attenuation (for complex and simpler arborization). You are welcome to include complexity in model and study other relevant phenomena. But your analyses should reflect on its physiological importance. 
-
-## Project 16: Pyramidal neurons in CA1 switch from integrators to resonators ([Prescott et al. 2008](https://journals.physiology.org/doi/epdf/10.1152/jn.90634.2008)) :
-
-[**Github Repository**](https://github.com/ModelDBRepository/116386)
-
-When the animal is in an active state (wakefulness) , pyramidal neurons typically experience a lot of synaptic inputs that causes tonic depolarisation, causes the resting membrane potential to rise (shunting) and noisy fluctuations. In contrast, pyramidal neurons in slices do not experience such a big barrage of synaptic inputs. Prescott et al 2008 claims that due to this discrepancy between in-vitro and and in-vivo conditions, the preposition that pyramidal neurons that are usually characterized as class 1  ( integrators ) is not that accurate. Conversely, the animal can have different states of inputs gathered at CA1 depending upon task and attention levels. They show that CA1 pyramidal neurons can transition from Integrator to resonator based on shunting levels and levels of adaptation Mechanistically, shunting and adaptation can change spike-onset dynamics from a SNIC-type onset to a Hopf-type onset. Another important feature shown is that slower M-current dynamics are important for bringing oscillations into the theta range, while slow sodium inactivation can further enhance perithreshold M-current activation during sustained depolarization.
-
-![](/media/image11-inverted.png)
-
-Using this model, one can readily demonstrate the following dynamical phenomena:
-1. Using XPPAUT and choosing relevant bifurcation parameters show the transition from SNIC to Hopf bifurcation and how each of them affect the F-I characteristic of the CA1 pyramidal neuron (Response property) : Effectively you will be replicating the first few figures of the paper. Suggestion is that you start with the Iext vs V and move from there. 
-2. Show how the background noise affects the transition in dynamics. Does more noise favour one dynamical system (SNIC vs Hopf) vs other ?
-3. Dissect out the role of adaptation vs shunting . Are there any other bifurcation parameters that can be used to understand the behaviour of the system ? 
-4. Replicate these neurons in your favourite neuron simulator. This will be convenient for making the F-I curve for different system configurations. Although in principle XPPAUT can also be used for the same.
-5. Make a network of these neurons in your favorite neuron simulator. For the inhibitory neurons (PV basket cell or O-LM) you can use simple integrate and fire type neurons with synapse characteristics matching the CA1. Compare the two configurations (SNIC vs Hopf) in both high inhibitory and low inhibitory settings. 
-6. Visualize V and w nullclines and observe how changing gM, beta_w (or any other parameter you think is important ) changes the nullcline geometry and (oscillatory) approach to equilibrium. 
-7. Show that a particular class supports subthreshold oscillation more than the other. 
-8. Compare the coding properties of integrator and resonator neurons by stimulating them with constant currents, pulses, ramps, chirps, noisy currents, and Poisson synaptic trains, and quantify differences in spike latency, phase locking, coincidence detection, temporal precision, vector strength, and transfer function.
-
-**Suggestion** : Look at chapter - 7 - Neuronal Excitability [**Izhkevich**](https://labs.ni.gsu.edu/ashilnikov/teaching/fall2008/8515/izhikevich.pdf) for more clarity about class 1 and class 2 behavior. 
-
-
-![](/media/image12-inverted.png)
-<div style="text-align: center;">
-
-**Reference** : [**Izhekevich's Book**](https://labs.ni.gsu.edu/ashilnikov/teaching/fall2008/8515/izhikevich.pdf)
-
-</div>
-
-
-You can do many more things with this model. Abovementioned suggestions are just characterizations of the model. Some interesting broad questions to ask might be :
-
-**A.** Does one configuration support a particular kind of computation vs other ? For example : Are resonator neurons better coincidence detectors?
-
-**B.** How does the excitability class influence network synchronization? What kind of computation can synchronization promote ? 
-
-**C.** Can a heterogeneous population containing both SNIC and Hopf neurons outperform homogeneous populations?
-
-**D.** Is there an optimal adaptation time constant for hippocampal computation? Can the network dynamically switch computational modes during behavior?
-
-**E.** Construct a network (Hint : [**Link**](https://brian2.readthedocs.io/en/stable/examples/frompapers.Morris_Lecar_1981.html)) consisting of excitatory pyramidal neurons together with inhibitory PV basket cells (or O-LM interneurons), compare network dynamics when the pyramidal cells operate in the SNIC versus Hopf regime under both low and high inhibition, and quantify synchrony, population firing rate, theta/gamma power, pairwise correlations, and phase locking to determine whether resonator neurons synchronize more readily. 
-**Hint** : You do not necessarily have to replicate inhibitory neuronal dynamics, you can use spike trains and simple inhibitory synapse with some reasonable time constants. 
-
-
-## Project 17: Small world network of Excitable neurons show self sustained activity ([Roxin, Reike and Solla 2004](https://doi.org/10.1103/PhysRevLett.92.198101))
-
-Persistent activity arising from network bistability is widely considered a candidate mechanism for working memory. Although numerous cortical network models have explored this phenomenon, the role of network architecture—particularly connectivity heterogeneity and long-range excitatory interactions—remains relatively underexplored. Investigating how these structural features influence network dynamics may help clarify the principles governing stable memory representations in cortical circuits. These self sustained activity can also be seen in models studying epilepsy and bursting in pre-botZ complexes. The group of Sara A. Solla showed that at low coupling (or connection probability) the network can show failure to propagate or succeed. ([paper](https://doi.org/10.1103/PhysRevLett.92.198101))
-
-
-Consider an array of N integrate-and-fire (IF) neurons as described in the paper : 
-
-1. Characterize how each parameter (`tauD`, `gsyn`, etc.) affects the overall firing pattern.
-
-2. Construct a small world network of these neurons in such a way that :
-
-        **a)**  Local connections are modeled as nearest-neighbors coupling (as in the paper) (Wij = 1 if i and j are neighbors) . You can use brian2, NEURON or any of your favourite simulators.
-
-        **b)**  Setup a long range connection from randomly adding a pn fraction of unidirectional connections.
-
-        **c)**  Calculate some network properties like clustering coefficient, closeness, betweenness and correlate it with the firing property of the network. Does it intuitively tell you anything ? 
-    
-        **d)**  Make a network of 1000 neurons with different values of  I, gsyn tau_membrane and tau_d . Confirm that for some value of these parameters, you start seeing persistent activity with some failure and successes. (Iext = 0.85, gsyn = 0.2,tau_m = 10  , tau_d = 1 ). The activity vanishes if connectivity or coupling is reduced ? Check that as well. 
-
-        **e)**  Design an algorithm to check whether the activity persists or not (failure vs success) and how long the activity persisted with a single injection of input. 
-
-        **f)**  For different  p from 0 to 1 (for instance, p = 0.1 ∗ k, k = 1, . . . , 10), average over 2000 realizations to calculate the probability of persistent activity. Plot the complementary probability of failure versus p, for N = 250, 1500, 1000, 2000 and comment the results. Observe that the probability of failure is an increasing function of p with increasing steepness as the size N of the system increases.
-
-
-3. Calculate clustering coefficient, closeness centrality, and betweenness centrality and correlate them with network firing properties.
-
-4. Construct networks of ~1000 neurons and identify regimes that support persistent activity.
-
-5. Design an algorithm to classify simulations into failure versus success and measure persistence duration.
-
-6. Reproduce the probability-of-failure analysis for different network sizes and rewiring probabilities.
-
-
-You can do many more things with this model. The above suggestions are merely characterizations of the model.
-
-**Some broader questions that may be interesting to investigate:**
-
-**A.** Can the network show input-dependent durations of persistent activity?
-
-
-**B.** Can you find out if the duration of persistent activity is a reliable quantity to store memory ? 
-
-
-**C.** What should be the connectivity of a network to give a somewhat reliable number of successes ? Do areas in the brain implicated in Working memory show connectivity close to this ?
-
-
-**D.** Do brain regions implicated in working memory exhibit similar connectivity statistics?
-
-
-
-
-## Project 17: Functional balanced networks with synaptic plasticity ([Sadeh et al 2015](https://doi.org/10.1371/journal.pcbi.1004307)) 
-[**Github Repository**](https://github.com/ModelDBRepository/182784)
-
-During the development of the visual cortex, synaptic connectivity is non-specific that later becomes functional and selective via several processes including synaptic pruning. One specific example of this is synaptic connections of orientation-selective neurons in the rodent visual cortex. However in the rodents the distribution of orientation selective neurons is different from primates. More specifically in rodents, in contrast, such spatial orientation maps do not exist, and neurons of different specificities are mixed in a salt-and-pepper fashion..Sadeh Rotter and Clopath ( Sadeh et al ) show that feature-specific connectivity can arise in realistic neocortical networks of excitatory and inhibitory neurons . They also show that such networks with plastic recurrent synapses can, through visual experience, develop specific connectivity. However there is an E-I balance that is maintained before and after training.  
-
-![](/media/image13-inverted.png)
-
-
-Using this model, one can readily demonstrate the following phenomena:
-
-1. You can create this model in Brian2, NEURON, or any of your favorite neuron simulators, or use the model provided by the authors in the GitHub repository. Calculate total excitatory versus total inhibitory current and examine how it evolves before and after plasticity.
-
-2. Start from random connectivity. Train for 40 training batches and plot the weight matrix before and after training (and also (Wf - Wi)). Verify that neurons with similar preferred orientations develop stronger E→E connections.
-
-3. For every neuron, calculate the tuning curve and determine its preferred orientation. You can also calculate the mean OSI (Orientation Selectivity Index) before and after training. Does synaptic plasticity sharpen tuning after training? Does learning make coding more sparse?
-
-4. Change the number of training batches (repeated training blocks) and the number of different stimuli (number of stimuli with different orientations in each batch). Figure out how these variables affect learning.
-
-5. Change the trial time and repeat the analysis in (4). Are the results intuitive?
-
-6. Change the timescales of plasticity and repeat the analysis in (4). Does learning make coding more sparse?
-
-7. Isolate one presynaptic and one postsynaptic cell and construct the plasticity kernel. Is potentiation symmetric? Does the rule generate bidirectional connectivity?
-
-8. Systematically vary E→E synaptic strength and connectivity. Calculate selectivity, OSI, and sparsity. Is there a critical connectivity density required for learning?
-
-
-You can do many more things with this model. The above suggestions are merely characterizations of the model.
-
-
-**A. Small-World vs Random Connectivity:** Replace the random E→E network with Erdős-Rényi, Small-world, and Scale-free architectures and compare learning speed and final specificity. This is a particularly interesting extension project.
-
-**B. Population Dynamics (Dimensionality Reduction):** Construct population firing rate vectors and perform PCA. Compare PCA trajectories before and after training. Does learning compress stimulus representations?
-
-**C. Weight Distribution Dynamics:** Calculate the evolution of the synaptic weight distribution over training. Why does a bimodal distribution emerge? You can also use information-theoretic approaches to explain this phenomenon.
+*/}

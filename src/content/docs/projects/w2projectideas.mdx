@@ -118,27 +118,8 @@ intrinsically bursting.
 
 2.  Now, can you vary parameters in the HVC-RA neurons and see what is the regime under which these neurons burst intrinsically?
 
-## Project 5: Activity state of random networks with dynamic synapses
 
-Networks with static synapses have been extensively studied. Much less
-is known about networks in which E and I neurons are connected with
-dynamic (facilitatory/depressing) synapses.
-
-1.  Set-up a network of integrate and fire neurons (at least 4K exc and 1K inh.). We use a simple neuron model as we are interested in the effect of synapse dynamics.
-
-2.  Connect the neurons randomly or in a spatial manner (your choice) There are four types of synapses in your model. E→ E, E→ I, I→ E, I→ I. Each could be a facilitatory or depressing type. Making EE synapses facilitatory could be risky as it could destabilize the network when operated at high frequencies. What is the right combination of the synapses that keeps the network stable and also allows it to exhibit different types of dynamical states. You can start by introducing dynamic synapses in EI and IE synapses.
-
-3.  Compare the states with a network in which synapses are static. Are there differences? Do we need to define new descriptors to capture the dynamics of a network in which synapses are dynamic?
-
-Please refer to:
-
-Uziel A, Markram H. t 2000: **Synchrony generation in recurrent
-networks with frequency- dependent synapses**
-(https://doi.org/10.1523/jneurosci.20-01-j0003.2000)
-
-And some other papers of Misha Tsodyks could give you a good start.
-
-## Project 6: Effect of dendritic morphology and ion channel distribution in single neuron models 
+## Project 5: Effect of dendritic morphology and ion channel distribution in single neuron models 
 
  - First try to reproduce the results for inward (terminal->soma) and outward (soma->terminal) input sequence from [Rall, W. (1964). Theoretical significance of dendritic trees for neuronal input-output relations. In R. F. Reiss (Ed.), Neural Theory and Modeling (pp. 73-97). Stanford Univ. Press. https://doi.org/10.7551/mitpress/6743.003.0015 ]  
 
@@ -148,7 +129,7 @@ And some other papers of Misha Tsodyks could give you a good start.
 
  - Pick a few interesting neuronal morphologies from neuromorpho.org and do the same experiment. What are the effects of input at different parts of the dendritic arbor?  
 
-## Project 7: Local feedback via dendrites  
+## Project 6: Local feedback via dendrites  
 
 Create a neuron A with a large dendritic arbor (you can pick some existing model) and create two single compartmental neurons B and C and connect them reciprocally to A. Compare the outcomes when: 
 
@@ -159,16 +140,16 @@ Create a neuron A with a large dendritic arbor (you can pick some existing model
 Start with passive models and then gradually add K+, Ca2+ and Na+ channels and see the results. What happens when you make the A-B and A-C synapses inhibitory? 
 
 
-## Project 8: Effect of dendritic morphology and ion channel distribution in single neuron models
+## Project 7: Effect of dendritic morphology and ion channel distribution in single neuron models
 - First try to reproduce the results for inward (terminal->soma) and outward (soma->terminal) input sequence from [Rall, W. (1964). Theoretical significance of dendritic trees for neuronal input-output relations. In R. F. Reiss (Ed.), Neural Theory and Modeling (pp. 73-97). Stanford Univ. Press.]
 - Then create a simple passive neuronal arbor with symmetric branching that gets thinner and thinner with distance from soma and attach synaptic inputs at various locations and observe the effect of activation of those synapses
 - Finally add various ion channels to all compartments, vary the conductance densities based on distance from the dendrite terminals, and explore the effect of synaptic inputs
 - Pick a few interesting neuronal morphologies from neuromorpho.org and do the same experiment. What are the effects of input at different parts of the dendritic arbor?
 
-## Project 9: Local feedback via dendrites
+## Project 8: Local feedback via dendrites
 Create a neuron A with a large dendritic arbor (you can pick some existing model) and create two single compartmental neurons B and C and connect them reciprocally to A. Compare the outcomes when (1) the synapses B-A, A-B, C-A, and A-C are all to and from the same compartment of A with (2) the scenario where they are on different branches of A. Start with passive models and then gradually add K+, Ca2+ and Na+ channels and see the results. What happens when you make the A-B and A-C synapses inhibitory?
 
-## Project 10: Graded Persistent Activity
+## Project 9: Graded Persistent Activity
 
 **Eye position:**
 
@@ -193,7 +174,7 @@ different quantities will have to be carefully adjusted.
 
 3.  How can you make the network more robust to parameter changes?
 
-## Project 11: Grid Cells and Reinforcement Learning
+## Project 10: Grid Cells and Reinforcement Learning
 
 Between model-free and model-based RL, there is a compromise called the Successor Representation. Stachenfeld, Gershman and Botvinick (2017) found a surprising relation between the Successor Representation and so-called grid cell firing patterns in the enthorinal cortex. Recreate their Supplementary Figures S7 and S8.
 Extra credit: Try some other environment shapes. Can you reproduce any of the figures from the main paper?
@@ -208,20 +189,276 @@ Extra credit 1 (if there is time): Add more than one state by adding multiple gr
 
 Extra credit 2: Instead of updating the synapses directly when there is reward, create a separate population of neurons that code for the RPE (“dopamine neurons”) and use their firing rates to update the synapses.
 
-## Project 13: Local connectivity and directional anisotropy can lead to the emergence of spatiotemporal sequences in spiking neuronal networks
 
-[Brian Code](https://brian2.readthedocs.io/en/stable/examples/frompapers.Spreizer_et_al_2019.Spreizer_et_al_2019.html)
 
-[Paper Link](https://doi.org/10.1371/journal.pcbi.1007432)
+## Project 11: MCell
 
-Many of the networks/regions in the brain encode relevant information in a spatiotemporal code. But the understanding of mechanisms behind how these patterns might emerge, remains incomplete. Sebastian Spreizer, Ad, and Arvind proposed a more biologically plausible connectivity rule which gives rise to spatiotemporal activity in a network of Leaky integrate and Fire neurons. What they suggest is that a directional anisotropy in the connectivity, in addition to local connectivity rules, can achieve this. 
+Astrocytic processes, especially perisynaptic astrocytic processes (PAPs), are thin (~100–300 nm diameter) and highly dynamic. These microdomains:
 
-You can do the following things in this framework :
+    - Enwrap synapses
 
-1. Show that a purely inhibitory network produces a significantly different spatiotemporal pattern than networks with excitation-inhibition of perlin networks. (as in paper). Investigate the effect of synaptic weights and time scales (synaptic taus) on generation of these patterns.   
-2. Analyse the power spectra of different network configurations. How is it affected by the strength of synaptic input ?  
-3. Test that the asymmetry and coupling determines the velocity of spatiotemporal activity patterns that emerge. You can make a two-dimensional plot for Extent of asymmetry on one axis and coupling (extent of local connections) on other and plot vmax. What does it tell you about the system ?  
-4. Change the extent of the perlin noise. Change it systematically and figure out how spatial patterns emerge with different extent of asymmetry of the network.   
-5. Give input to a small set of local neighbouring neurons. How the spatiotemporal patterns emerge in different connectivity schemes. 
+    - Are rich in IP₃ receptors (IP₃Rs) on internal endoplasmic reticulum membranes
 
-Many more interesting things can be done with this model. For starters, does leak affect the emergence of spatiotemporal patterns ? Or is a reset mechanism enough for this in a perlin network? Next thing, is there a phase locking to the global oscillation of the network ? Authors also suggest that asymmetric modulation by neuromodulation like dopamine can also help in creating such a pattern. 
+    - Exhibit localized spontaneous Ca²⁺ signals called blips (single-channel events) and puffs (multi-channel events)
+
+
+Experimental challenge: Due to their tiny size, these compartments are below the resolution of standard fluorescence microscopy, making it hard to determine:
+
+- Molecular mechanisms
+
+- Spatial organization
+
+- Origin of spontaneous calcium signals
+
+Particle-based spatial stochastic simulation is ideal for capturing:
+
+- Spatial localization of receptors and signaling molecules
+
+- Stochastic fluctuations in small volumes
+
+- Colocalization-driven feedback mechanisms
+
+
+This is where MCell comes in — a platform for realistic 3D, particle-based simulations of cell signalling at nanoscales.
+
+**Objectives**
+
+1. Replicate a spatial, stochastic model of spontaneous Ca²⁺ signaling via IP3Rs in fine astrocytic processes.
+
+
+2. Quantify how IP₃R clustering (η) and calcium source colocalization radius (Rγ) affect:
+
+    - Open probability of IP3 receptors
+
+    - Amount of calcium in the cytosol
+
+    - Proportion of blips vs puffs
+
+
+All parameters and model details are provided in the paper below:.
+
+**Reference paper:** 
+
+https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006795
+
+“Simulation of calcium signaling in fine astrocytic processes: Effect of spatial properties on spontaneous activity”
+
+Audrey Denizot, Misa Arizono, U. Valentin Nägerl, Hédi Soula, Hugues Berry
+
+## Project 12: MCell
+
+![](/mcellproject2.jpg)
+
+What is that smell? Where is it coming from? We have often found ourselves pondering these questions, regardless of the source of that smell. Interestingly, we are not alone in this inquiry; all complex organisms can ask the same. The olfactory system is arguably the oldest sensory system and is present across these organisms, allowing them to identify the source of an odorant by adjusting their nasal cavities or antennae and comparing the incoming signals.
+
+In this project, you will design two identical conical nasal cavities using CellBlender and simulate the response of olfactory receptors to a diffusing odorant. By studying the dynamics of the receptors in the nasal cavity, can you determine the direction or angle of the odorant’s source? If so, please explain the underlying principle that enables the detection of the source's direction or angle from the nasal cavity. Additionally, comment on the resolution of your system. Feel free to draw your own conclusions as well.
+
+Feel free to play around with the rate constants.
+
+You may use the following papers for further reference:
+1. https://bpspubs.onlinelibrary.wiley.com/doi/pdfdirect/10.1002/prp2.311
+2. https://pubs.acs.org/doi/10.1021/acs.jpcb.7b00486
+
+## Project 13: From spiking neurons to population dynamics -- example on Wilson-Cowan model
+
+Objective:
+
+This project explores how the collective behavior of neural populations
+emerges from the interactions of individual spiking neurons. Using
+probabilistic methods inspired by Bressloff \[1\] and Benayoun et al.
+\[2\], the Wilson-Cowan equations \[3,4\] are derived from microscopic
+spiking dynamics. The analysis of this mean-field model explains key
+phenomena like bistability and oscillations in neural activity.
+
+1\. Mean-Field Approximation:
+
+Let's consider a network of stochastic binary neurons (0: quiescent
+state and 1: active state). Each neuron spiking (jump from 0 to 1)
+probability depends on its inputs from the other excitatory and
+inhibitory neurons. Considering the dynamics of the proportion of active
+neurons when the number of neurons tends to infinity, one can derive a
+mean field model which is nothing else than the famous WIlson-Cowan
+model.
+
+2\. Emergent Phenomena:
+
+Analysing the limit system with dynamical system theory, one can find
+parameters generating interesting dynamics such as bistability and
+oscillations.
+
+3\. Numerical Exploration:
+
+Simulations of the Wilson-Cowan model and its microscopic version
+enables one to visualize these phenomena, mapping out parameter regimes
+where bistability or oscillations occur.
+
+4\. Discussion:
+
+What are the strengths and limitations of the mean-field approach?
+Consider when it breaks down (e.g., in small or highly correlated
+networks) and possible extensions to include noise or spatial structure.
+
+Outcome:
+
+The project highlights the interplay between theory (mean-field
+approximations) and phenomena (bistability, oscillations), offering
+intuition for how simplified models can capture complex neural behavior.
+
+References:
+
+\[1\] Bressloff, P. C. Metastable states and quasicycles in a stochastic
+Wilson-Cowan model of neuronal population dynamics. *Physical Review E*
+**82**, 051903 (2010).
+
+\[2\] Benayoun, M., Cowan, J. D., van Drongelen, W. & Wallace, E.
+Avalanches in a Stochastic Model of Spiking Neurons. *PLoS Computational
+Biology* **6**, e1000846 (2010).
+
+\[3\] Wilson, H. R. & Cowan, J. D. Excitatory and Inhibitory
+Interactions in Localized Populations of Model Neurons. *Biophysical
+Journal* **12**, 1--24 (1972).
+
+\[4\] Wilson, H. R. & Cowan, J. D. A mathematical theory of the
+functional dynamics of cortical and thalamic nervous tissue.
+*Kybernetik* **13**, 55--80 (1973).
+
+
+## Project 14: Bring me a Neuronal morphology that can….! :
+
+This project is concerned with characteristic ‘passive’ properties of neurons and how they affect neuronal signal processing. We have the following properties that we can study:
+
+i)	The electric properties: Rm, Ra, Cm.
+ii)	The morphology of the neuronal sections: Diameter, Length (of both the soma and the dendrites)
+iii)	The topology of the neuron–arborization with multiple dendrites: makes neurons with at least 2 dendrites.
+iv)	Distribution of synapses: synapses on same dendrites vs multiple dendrites.
+
+This is a simple project to implement, so the analysis has to be very rigorous. One way to go about this would be to define a repertoire of different neurons and try the same experiments with different neurons. 
+
+1.	Model a biophysically realistic model of neuron. Have two copies of the neuron – one with only passive leak currents and one with active ion channels. Make sure you have enough complex neuron models such all the properties above can be studied. Make sure to use appropriate compartmentalisation.
+2.	Impinge the neurons with different types of currents – constant current, white noise, and Poisson. Comment about the differences observed when the properties mentioned above are changed. 
+3.	Distribute the synapses on the dendrites: either distribute the synapses on the same dendrite at different distances from the soma, or distribute them at different dendrites at the same distance from the soma. 
+4.	Activate some synapses – how does the EPSP travel in the dendrites of various characteristics? Stimulate all simultaneously, or with Poisson statistics. What are the differences observed?
+5.	Observe and comment about the temporal and spatial summation of the stimuli. 
+6.	Perform the same analyses with active ion channels. How do the various characteristics change?
+7.	Add white noise to the models. How does this change the temporal and spatial summation?
+
+Analyse the results with physiological significance and constraints in mind. Your analyses should rigorously analyse the effect of the changes in different properties in phenomena like dendritic integration (both temporally and spatially) and attenuation (for complex and simpler arborization). You are welcome to include complexity in model and study other relevant phenomena. But your analyses should reflect on its physiological importance. 
+
+
+
+
+
+## Project 15: Electrophysiology and Neural Coding
+
+In this project, we will analyse the coding properties of a neuron and
+how they vary with different neuronal characteristics.
+
+Make a conductance-based model of a neuron with active conductance.
+You can include any number of ion channels in the model as you like,
+or even model a neuron with empirically observed ion channels and
+corresponding conductance. The only requirement is that it should fire
+action potentials.
+
+1.  Identify the default firing mode of the neuron (classify it into a class I, class II or class III neuron).
+
+2.  Modulate the different ion channel properties of channels in the neuron and find out which channels change the firing mode of the neuron.
+
+3.  Find out the channel properties corresponding to the three classes of neurons. As such, create a repertoire of class I, class II and class III neurons starting from the base model.
+
+4.  Why does the firing mode of the neurons change with the different properties? Show in context of different ion channel currents.
+
+5.  Find out the temporal summation characteristics of the signals impinged on the neuron and how they vary for the three classes.
+
+6.  Find out the Spike Triggered Average (STA) for the three classes of neurons. Comment on the Input-Output properties of the neuron.
+
+7.  Create a set of similar classes of neurons and impinge them with a variety of synchronous and asynchronous inputs.
+
+8.  Repeat 6 with various types and amounts of noise. Analyze the effects of correlation in inputs and noise on the correlation of the output.
+
+Comment on what role the various classes of neurons can play in a
+network.
+
+Bonus: If you have not already, introduce HCN, NaP, SK and CaT type
+currents in the neuronal model and analyse the effects of the ion
+channels on the coding characteristics.
+
+For reference, please refer to the excellent review: Impact of
+Neuronal Properties on Network Coding: **Roles of Spike Initiation
+Dynamics and Robust Synchrony Transfer**
+(http://dx.doi.org/10.1016/j.neuron.2013.05.030)
+
+
+
+{/*
+
+
+
+
+######################### UNUSED PROJECTS (Just in case) ##################
+###########################################################################
+
+
+
+## Project 16: Grid cell-to-place cell transformation model with AD-related synaptic loss ([*Ness and Schultz 2021*])((https://doi.org/10.1371/journal.pcbi.1009115)) :
+
+[**Github Repository**](https://github.com/ModelDBRepository/267023)
+
+
+1. Place cells in hippocampal CA1 encode an animal's location in space and are essential for spatial navigation and memory. Disruptions to place-cell activity and stability are among the earliest functional changes associated with Alzheimer's disease (AD), often preceding extensive neuronal loss and contributing to impairments in spatial cognition. Understanding how place fields are maintained over time, and how they deteriorate during disease progression, is therefore important for identifying mechanisms underlying early AD-related cognitive decline. A long-standing question is how stable place fields can persist despite continuous synaptic turnover. Ness and Schultz developed a grid-cell-to-place-cell transformation model in which place fields emerge from entorhinal grid cell inputs, competitive inhibition, and synaptic plasticity. The model reproduces long-term place-cell stability and was further used to investigate how excitatory and inhibitory synapse loss, as observed in early Alzheimer's disease (AD), affects spatial representations.
+
+
+2. You can create this model in brian2, NEURON or any of your favorite neuron simulators or use the model provided by the authors in the GITHUB REPO. Suggestion is that parallelize some portions of the code so that the original code itself runs faster for different conditions.
+Investigate how grid cell inputs affect the Grid to place transformation in the intact network. Also check the effect of grid size on this transformation in the intact network. Try removing synaptic scaling. Is synaptic scaling necessary to prevent runaway excitation?
+
+
+
+3. Change the learning rule (BCM → Hebbian) and investigate its effect on the grid to place transformation. Compare: Place field stability, Place field density and Mean firing rates of place cells. Why does BCM stabilize long-term representations better?
+4. Plot the number of place cells as no. of days evolve.
+5. Alzheimer's Disease Simulations : The original code allows direct simulation of AD-related synaptic loss. Set gc_syn_loss = True to simulate excitatory Grid Cell → Place Cell synapse loss. Set inh_syn_loss = True to simulate inhibitory Interneuron → Place Cell synapse loss.
+6. Using weighted sums of grid-cell activity to generate place cell firing maps. Find out Number of place cells , Place field width , Place field centroid and Place field peak firing rate. How does convergence of multiple grid cells create localized place fields?
+7. The model replaces synapses every simulated day. Try running different levels of turnover. How much synaptic turnover can memory tolerate?
+
+
+![](/media/image14-inverted.png)
+
+
+
+
+![](/media/image15-inverted.png)
+
+You can do many more things with this model. Abovementioned suggestions are just characterizations of the model. Some interesting broad questions to ask might be :
+
+**A.** **Place Field Drift:** Track place-field centroids over time.Compute:Mean drift, Drift variance, Drift speed etc. Are memories erased or slowly displaced?
+
+**B.** **Grid Cell Diversity:** Change the Grid spacing Orientation and phase and measure the place field size and number of place cells. Which grid-cell property contributes most to place coding?
+
+**C.** **Noise tolerance:** Add input noise to grid cell input/synaptic noise and figure out How robust are hippocampal representations?
+
+**D.** **AD deficits:** Different AD deficits Inhibitory synapse loss vs Excitatory synapse loss causes different place-cell coding defects. One causes loss in place field formation, the other just affects the tuning of the place cell. (broadens the width of the place field). Can you think of other variables that can potentially be affected by AD onset ? How would they affect the place cells ? 
+
+
+
+
+
+
+
+
+
+## Project 15: Operant conditioning and dopamine
+
+In operant conditioning, the animal performs random movements but only
+one kind of movement gives it a reward. Out of the thousands of
+movements how does the system know which movement gives it a reward?
+The reward itself comes after a few seconds in which time the animal
+may have made some more movements. How does the system keep track of
+which synapses to potentiate if the neurons themselves are
+stochastically firing during this waiting period? Implement a learning
+scheme in which the co-firing neurons get tagged due to STDP mechanism
+and the weight update itself occurs due to dopamine released at the
+time of the reward. Refer to
+https://doi.org/10.1093/cercor/bhl152
+
+
+
+
+*/}
