@@ -1,7 +1,7 @@
 ---
 title: Project 1 Ideas
 description: List of Projects
-draft: false
+draft: true
 
 # sidebar:
 #   # Set a custom order for the link (lower numbers are displayed higher up)
@@ -18,14 +18,14 @@ Recreate a spatially explicit canonical model of a CA3-CA1 synapse based on the 
 Simulate stochastic release of vesicles and measure excitatory postsynaptic currents based on  Freche 2011 for two different models of AMPA with varying desensitization time constants. 
 Measure the postsynaptic excitatory current response in AMPA receptors at various postsynaptic locations 
 Given the fast desensitization of AMPA, what is the optimal spatial organization of AMPA that gives maximal postsynaptic response for rapid firing and slow firing? Can you quantify this relationship between stimuli pattern and location to get an optimal post-synaptic response?
-					
+          
 
 ### Quantifying the contribution of various sources of synaptic noise to variability in postsynaptic response (lead TA: Dhruv)
-Carry out stochastic simulation of action potential in the bouton  based on the geometry in _Singh et. al Nat Comm 2022._ There are several sources of variability that affect synaptic transmission. These include the stochastic opening and the placement of calcium channels that affect the amplitude and the timing of the calcium signal at the activezone, activity of calcium buffers , calcium binding of the vesicle release machinery. 	
+Carry out stochastic simulation of action potential in the bouton  based on the geometry in _Singh et. al Nat Comm 2022._ There are several sources of variability that affect synaptic transmission. These include the stochastic opening and the placement of calcium channels that affect the amplitude and the timing of the calcium signal at the activezone, activity of calcium buffers , calcium binding of the vesicle release machinery.  
 Quantify the effect of each source of variability on the postsynaptic current response.
 :::tip 
 To quantify the effect of stochastic opening of voltage channel channels, increase the per calcium channel flux appropriately as you vary the channel number so that total flux remains the same. FYI: deterministic approximations are appropriate for large channel numbers.
-::: 	
+:::   
 
 
 ### Role of glutamate transporters on astrocytes on postsynaptic current response (lead TA: Nishant Singh)
@@ -35,11 +35,11 @@ Vary the expression level and binding rate of glutamate transporters in the give
 - Franks,K.M.,Bartol,T.M.&Sejnowski,T.J.,2002.AMonteCarlomodelreveals independent signaling at central glutamatergic synapses. Biophysical journal, 83(5), pp. 2333–2348.
 
 - Keller,D.X.etal.,2008.Calmodulinactivationbycalciumtransientsinthepostsynaptic density of dendritic spines. PLoS ONE, 3(4), p.e2045.
- 							
+              
 - Kerr,R.etal.,2008.FastMonteCarlosimulationmethodsforbiologicalreaction-diffusion systems in solution and on .... SIAM Journal on Scientific Computing.
- 							
+              
 - Nadkarni,S.etal.,2010.Modellingvesicularreleaseathippocampalsynapses.PLoS computational biology, 6(11), p.e1000983.
- 							
+              
 - Scimemi,A.,2014. PlasticityofGABAtransporters:anunconventionalroutetoshape inhibitory synaptic transmission. Frontiers in Cellular Neuroscience, 8, p.128.
 
 - Dominik Freche,Ulrike Pannasch,Nathalie Rouach,David Holcman, Synapse Geometry and Receptor Dynamics Modulate Synaptic Strength
@@ -63,17 +63,20 @@ Explore the effects of different voltage-gated currents on neural coding. What a
 
 ## Noisy Repressilators
 
-Consider the following 2-node garden variety cricuit.
+Consider the following 2-node garden variety circuit.
 
 ![circuit 1](/rep_1.png)
 
 $f(y)$ is some increasing function (activator) of $y$ and $g(x)$ is a decreasing (repressor) function of $x$. 
 
-The equations governing the dynamics of this circuit are,
+The equations governing the dynamics of this circuit are:
 
-$$\frac{dx}{dt} = f(y) - \alpha_{1}(x)$$
-
-$$\frac{dy}{dt} = g(x) - \alpha_{2}(y)$$
+$$
+\begin{aligned}
+\frac{dx}{dt} &= f(y) - \alpha_{1}(x) \\
+\frac{dy}{dt} &= g(x) - \alpha_{2}(y)
+\end{aligned}
+$$
 
 let $f(y) = \beta_1y$ and $g(x) = \beta_2x$
 
@@ -189,54 +192,4 @@ response characteristic (FRC)
 - Change the various parameters of the model and examine what happens to the model’s
 FRC
   - The amount of AMPAR and NMDAR in the synapse
-  - The rate at which CaN dephosphorylate p_AMPAR
-  - The rate at which CaMKII phosphorylate AMPAR
-  - Conductance of various ion channels
-
-## BCM metaplasticity
-Look at how BCM metaplasticity behaves with respect to stability and biological detail
-- See how you could get runaway activity in a network if you did not have negative
-metaplasticity
-- See what effect spine volume change would have on direction of metaplasticity
-- See if you can flip metaplasticity through pathological changes in various molecules at
-the synapse, leading to runaway activity.
-
-## Rall’s law
-Make a 3 compartment passive branching dendritic structure model. Convert this model into 2
-compartment model such that:
-- Both the compartments are of the same diameter and this diameter is equal to the
-primary dendrite of the original 3-compt model.
-- Input resistance and input capacitance remain unchanged
-
-- Time and length constant remain the same
-Is there a relationship between the diameter of the two secondary dendrites and the diameter of
-the 2-compt model?
-
-## Firing patterns
-Implement a izhikevich model and make the following firing patterns:
-- Regular spiking
-- Intrinsically bursting
-- Chattering
-- Fast spiking
-- Thalamocortical
-- Resonator
-- Low-threshold spiking
-- Adapting
-
-What is the relationship between the different variables in the model and the firing type.
-Now implement a single compartment model and introduce the different types of ion channels. You can
-use Modeldb to get the mod files. Can you hand tune the model to get these different spiking patterns?
-Which ion channels are responsible for bursting, adaptation and other patterns.
-
-
-
-
-
-
-
-
-
-
-
-
-
+  - The rate at which Ca
