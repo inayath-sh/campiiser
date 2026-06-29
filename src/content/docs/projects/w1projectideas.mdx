@@ -489,8 +489,46 @@ You can do the following things in this framework :
 Many more interesting things can be done with this model. For starters, does leak affect the emergence of spatiotemporal patterns ? Or is a reset mechanism enough for this in a perlin network? Next thing, is there a phase locking to the global oscillation of the network ? Authors also suggest that asymmetric modulation by neuromodulation like dopamine can also help in creating such a pattern. 
 
 
+## Project 14: Spontaneous calcium oscillations in Astrocytes and IP3-dependent Calcium Dynamics in Astrocytes 
+(**Laventovich and Hemkin 2008, Handy et al 2017**)
+
+[**Github Repository Paper 1**](https://github.com/ModelDBRepository/112547)
+
+[**Github Repository Paper 2**](https://github.com/ModelDBRepository/189344)
 
 
+[**Tiina Manninen Replication in Python Paper 1**](https://modeldb.science/223144)
+
+
+
+
+Astrocytes, once considered passive support cells, are now widely accepted as active participants in neural signaling. Activity-dependent increases in astrocytic intracellular Ca²⁺ trigger the release of gliotransmitters such as glutamate and ATP, which modulate neuronal activity. This has led to the tripartite synapse concept, where pre- and postsynaptic neurons and astrocytes communicate bidirectionally. Astrocyte–neuron interactions influence synaptic plasticity, including long-term depression (LTD), and are implicated in neurological disorders such as epilepsy. In many of these cases where astrocytes are seen to interact with their environment, a change in the concentration or oscillatory behavior of the astrocyte's [Ca2+] cyt appears to be an integral step in the process.
+Experiments show that while the changes in the astrocyte's oscillatory Ca2+ behavior is often found to be a result of external stimulation, these oscillations can also be formed spontaneously. These spontaneous oscillations are ubiquitous (and reported in both in situ and several parts of the brain. Laventovich and Hemkin were able to investigate key mechanistic steps of this process using a mathematical model of astrocyte’s Ca2+ oscillations and were able to replicate various experimental phenomena related to this process. 
+Nearly a decade later, Handy et al. extended this line of work by asking a different question. Rather than simply explaining why oscillations occur, they investigated why astrocytes display such a rich diversity of calcium responses. Their model incorporates IP3 receptor dynamics, SERCA pumps, PMCA pumps, ER leak currents and store-operated calcium (SOC) channels into a more detailed nonlinear dynamical system. A central conclusion of their work is that the different experimentally observed calcium response types are largely determined by the underlying bifurcation structure of the system rather than by arbitrary parameter choices. Unlike neuronal models, where injected current is typically used as the bifurcation parameter, here the physiologically meaningful control parameter is the intracellular IP3 concentration itself. This makes astrocytes an excellent system for studying nonlinear dynamics in a directly biological context.
+Together these two papers provide an excellent introduction to nonlinear biochemical dynamics. The first paper explains how oscillations emerge, whereas the second explains how those oscillations are organized in parameter space. The models are sufficiently simple to explore using XPPAUT while still capturing many experimentally observed calcium dynamics.
+
+Using this model, one can readily demonstrate the following phenomena:
+
+1. Simulate spontaneous calcium oscillations in the Lavrentovich and Hemkin model. Show that oscillations arise without any externally applied stimulus and investigate how changing the basal calcium influx parameter (Vin) changes the behaviour of the system. Identify the range of parameters for which spontaneous oscillations exist and compare the simulated oscillation period with that reported in the paper.
+2.Investigate how astrocytic calcium dynamics change when : 
+-SERCA pump activity is reduced,
+-IP3 receptor conductance is reduced, calcium influx across the membrane is altered. Explain mechanistically why each manipulation changes the oscillatory behaviour.
+- Effect of plasma membrane calcium influx and 
+- IP3 degradation effects. Explain mechanistically why each manipulation changes the oscillatory behaviour. Relate each manipulation to the corresponding biological experiment.
+3. Using the Handy model, reproduce the four experimentally observed calcium response classes: Single Peak, Multipeak , Plateau and Long-lasting response types. Determine how changes in intracellular IP3 move the system between these response types. 
+4. Draw the bifurcation diagram of the Handy model using intracellular IP3	​ as the continuation parameter. Identify stable equilibrium, unstable equilibrium, stable limit cycles,Hopf bifurcations (try to explain it if you can from a reduced form of equations), and relate each calcium response to its location within the bifurcation diagram.
+
+You can do many more things with this model. The above suggestions are merely characterizations of the model.
+
+**A. Frequency encoding versus amplitude encoding:** One long-standing question in calcium signalling is whether information is encoded primarily through oscillation frequency, oscillation amplitude, oscillation duration or combinations of all three. Stimulate the astrocyte using different IP3 waveforms. (pulses,ramps,sinusoidal inputs,noisy inputs) and determine which quantities change most reliably.
+
+**B.** Choose another additional parameter as a bifurcation parameter and redraw the bifurcation diagram for it. Which parameters merely shift the bifurcation, and which fundamentally alter the qualitative dynamics?  
+
+**C.** Instead of varying a single parameter, construct two-parameter bifurcation diagrams for Ex: IP3 - SERCA. Identify the regions of oscillations, steady states and bistability etc. 
+
+**D.** The Lavrentovich model briefly demonstrates that changing only a few parameters can generate period-adding behaviour and even chaotic oscillations. Reproduce these results and investigate the route to chaos. Does the system undergo period doubling, period adding or some other transition? Also for this model : Plot nullclines and trajectories and identify fast and slow variables. 
+
+**E.** Real astrocytes exhibit considerable cell-to-cell variability. Perform a sensitivity analysis by varying multiple parameters simultaneously. Which mechanisms produce robust oscillations? Which parameters require tight biological regulation? Are spontaneous oscillations merely biological noise, or do they carry functional information? What advantages do astrocytes acquire by operating near the onset of oscillatory behaviour?
 
 
 
